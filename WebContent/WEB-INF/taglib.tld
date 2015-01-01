@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib> 
+<tlibversion>1.0</tlibversion>
+<jspversion>2.0</jspversion>
+<shortname>substr</shortname>
+<info>Tag Libs UI - Enola</info>
+<uri>http://www.edunola.com.ar/</uri>
+
+<!-- Themes -->
+<tag>
+	<name>theme</name>
+    <tagclass>com.tags.Theme</tagclass>
+    <info>Tema de la pagina.</info>
+   	<attribute>
+      	<name>nombre</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<!-- Java Script -->
+<tag>
+	<name>javaScript</name>
+    <tagclass>com.tags.JavaScript</tagclass>
+    <info>Java Script de la pagina.</info>
+   	<attribute>
+      	<name>nombre</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<!-- Charts -->
+<tag>
+	<name>columnParsed</name>
+    <tagclass>com.tags.charts.ColumnParsed</tagclass>
+    <info>Chart en Barra</info>
+   	<attribute>
+      	<name>tableId</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>title</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>units</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+<tag>
+	<name>dateCountdown</name>
+    <tagclass>com.tags.charts.DateCountdown</tagclass>
+    <info>Contadora de Tiempo en Circulos</info>
+    <attribute>
+      	<name>id</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+   	<attribute>
+      	<name>date</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>width</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>height</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<!-- Statics -->
+<tag>
+	<name>address</name>
+    <tagclass>com.tags.statics.Address</tagclass>
+    <info>Componente para mostrar datos de empresa</info>
+   	<attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>address</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>locality</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>phone</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>alertMessage</name>
+    <tagclass>com.tags.statics.AlertMessage</tagclass>
+    <info>Mensaje de Alerta</info>
+   	<attribute>
+      	<name>type</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>strong</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>message</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>badge</name>
+    <tagclass>com.tags.statics.Badge</tagclass>
+    <info>Badge</info>
+   	<attribute>
+      	<name>href</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>badge</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>blockquote</name>
+    <tagclass>com.tags.statics.Blockquote</tagclass>
+    <info>Blockquote</info>
+   	<attribute>
+      	<name>text</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>source</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>fixedFooter</name>
+    <tagclass>com.tags.statics.FixedFooter</tagclass>
+    <info>Un footer simple fijo</info>
+</tag>
+
+<tag>
+	<name>searchForm</name>
+    <tagclass>com.tags.statics.SearchForm</tagclass>
+    <info>Devuelve un formulario simple de busqueda.</info>
+   	<attribute>
+      	<name>label</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>inputName</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>button_id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onclick</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>inputPlaceholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>inputValue</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>iframe</name>
+    <tagclass>com.tags.statics.Iframe</tagclass>
+    <info>Iframe</info>
+   	<attribute>
+      	<name>ratio</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>src</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>image</name>
+    <tagclass>com.tags.statics.Image</tagclass>
+    <info>Imagen</info>
+   	<attribute>
+      	<name>alt</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>src</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>type</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>jumbotron</name>
+    <tagclass>com.tags.statics.Jumbotron</tagclass>
+    <info>Jumbotron</info>
+   	<attribute>
+      	<name>titulo</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>contenido</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>href</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>simplePaginator</name>
+    <tagclass>com.tags.statics.SimplePaginator</tagclass>
+    <info>Paginador simple.</info>
+   	<attribute>
+      	<name>previous_label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>previous_url</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>previous_disabled</name>
+      	<type>java.util.Boolean</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>next_label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>next_url</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>next_disabled</name>
+      	<type>java.util.Boolean</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>progressBar</name>
+    <tagclass>com.tags.statics.ProgressBar</tagclass>
+    <info>Barra de progreso</info>
+   	<attribute>
+      	<name>porcentaje</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>striped</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>simpleFooter</name>
+    <tagclass>com.tags.statics.SimpleFooter</tagclass>
+    <info>Un footer simple</info>
+</tag>
+
+<tag>
+	<name>simpleHeader</name>
+    <tagclass>com.tags.statics.SimpleHeader</tagclass>
+    <info>Un header simple</info>
+   	<attribute>
+      	<name>primario</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>secundario</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>thumbnail</name>
+    <tagclass>com.tags.statics.Thumbnail</tagclass>
+    <info>Thumbnail</info>
+    <attribute>
+      	<name>src</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>alt</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+   	<attribute>
+      	<name>title</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>content</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>href</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>title</name>
+    <tagclass>com.tags.statics.Title</tagclass>
+    <info>Un titulo simple</info>
+   	<attribute>
+      	<name>title</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>well</name>
+    <tagclass>com.tags.statics.Well</tagclass>
+    <info>Well</info>
+   	<attribute>
+      	<name>content</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<!-- Forms and Components -->
+<tag>
+	<name>form</name>
+    <tagclass>com.tags.form.Form</tagclass>
+    <info>Devuelve un formularios.</info>
+   	<attribute>
+      	<name>label</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>method</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>action</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>enctype</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>login</name>
+    <tagclass>com.tags.form.Login</tagclass>
+    <info>Devuelve un formulario de Login</info>
+    <attribute>
+      	<name>method</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>action</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>title</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>userPlaceholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>userName</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>userValue</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>passPlaceholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>passName</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>checkName</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>checkValue</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>checkLabel</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>buttonLabel</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>input</name>
+    <tagclass>com.tags.form.Input</tagclass>
+    <info>Input de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>type</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>placeholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>value</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>inputFile</name>
+    <tagclass>com.tags.form.InputFile</tagclass>
+    <info>Input File de Formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>textarea</name>
+    <tagclass>com.tags.form.TextArea</tagclass>
+    <info>Text Area de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>placeholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>rows</name>
+      	<type>java.util.Integer</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>value</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>select</name>
+    <tagclass>com.tags.form.Select</tagclass>
+    <info>Select de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>selectMultiple</name>
+    <tagclass>com.tags.form.SelectMultiple</tagclass>
+    <info>Select Multiple de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>selectOption</name>
+    <tagclass>com.tags.form.SelectOption</tagclass>
+    <info>Opcion de Select de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>booleanCheckbox</name>
+    <tagclass>com.tags.form.BooleanCheckbox</tagclass>
+    <info>Boolean Checkbox de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<required>true</required>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>checkbox</name>
+    <tagclass>com.tags.form.Checkbox</tagclass>
+    <info>Checkbox de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>inline</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>checkboxOption</name>
+    <tagclass>com.tags.form.CheckboxOption</tagclass>
+    <info>Opcion de Checkbox de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>radio</name>
+    <tagclass>com.tags.form.Radio</tagclass>
+    <info>Radio de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>inline</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>radioOption</name>
+    <tagclass>com.tags.form.RadioOption</tagclass>
+    <info>Opcion de Radio de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>boxButton</name>
+    <tagclass>com.tags.form.Botonera</tagclass>
+    <info>Botonera de formulario.</info>
+</tag>
+
+<tag>
+	<name>button</name>
+    <tagclass>com.tags.form.Button</tagclass>
+    <info>Boton.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>type</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>button_id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onclick</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>style</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<!-- Nav Menu -->
+<tag>
+	<name>dropDownMenu</name>
+    <tagclass>com.tags.nav_menu.DropDownMenu</tagclass>
+    <info>Menu con Drop Down</info>
+    <attribute>
+    	<name>label</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>right</name>
+    	<type>java.util.Boolean</type>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<name>menuItem</name>
+    <tagclass>com.tags.nav_menu.MenuItem</tagclass>
+    <info>Item del menu</info>
+    <attribute>
+    	<name>type</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>disabled</name>
+    	<type>java.util.Boolean</type>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>href</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>label</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<name>navBarForm</name>
+    <tagclass>com.tags.nav_menu.NavBarForm</tagclass>
+    <info>Form para la barra de navegacion</info>
+    <attribute>
+    	<name>action</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>method</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>inputName</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>placeholder</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>inputValue</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>label</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>v
+    </attribute>
+</tag>
+
+<tag>
+	<name>navBarLeft</name>
+    <tagclass>com.tags.nav_menu.NavBarLeft</tagclass>
+    <info>Navegacion de la izquierda</info>
+</tag>
+
+<tag>
+	<name>navBarRight</name>
+    <tagclass>com.tags.nav_menu.NavBarRight</tagclass>
+    <info>Navegacion de la derecha</info>
+</tag>
+
+<tag>
+	<name>navItem</name>
+    <tagclass>com.tags.nav_menu.NavItem</tagclass>
+    <info>Item de la barra de navegacion</info>
+    <attribute>
+    	<name>state</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>href</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>label</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<name>navItemDropDown</name>
+    <tagclass>com.tags.nav_menu.NavItemDropDown</tagclass>
+    <info>Item drop down de la barra de navegacion</info>
+    <attribute>
+    	<name>label</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>right</name>
+    	<type>java.util.Boolean</type>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<name>navigationBar</name>
+    <tagclass>com.tags.nav_menu.NavigationBar</tagclass>
+    <info>Barra de navegacion</info>
+    <attribute>
+    	<name>href</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>logo</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<name>navigationMenu</name>
+    <tagclass>com.tags.nav_menu.NavigationMenu</tagclass>
+    <info>Menu de navegacion</info>
+    <attribute>
+    	<name>type</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>justified</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>stacked</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<!-- Others -->
+<tag>
+	<name>breadcrumb</name>
+    <tagclass>com.tags.others.Breadcrumb</tagclass>
+    <info>breadcrumb</info>
+</tag>
+
+<tag>
+	<name>ul_a</name>
+    <tagclass>com.tags.others.Ul_A</tagclass>
+    <info>ul de a.</info>
+</tag>
+
+<tag>
+	<name>ul</name>
+    <tagclass>com.tags.others.Ul</tagclass>
+    <info>ul de li</info>
+</tag>
+
+<tag>
+	<name>li</name>
+    <tagclass>com.tags.others.Li</tagclass>
+    <info>li.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>badge</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	 <attribute>
+      	<name>active</name>
+      	<type>java.util.Boolean</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>li_a</name>
+    <tagclass>com.tags.others.Li_A</tagclass>
+    <info>li de a.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>href</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>badge</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	 <attribute>
+      	<name>active</name>
+      	<type>java.util.Boolean</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>paginator</name>
+    <tagclass>com.tags.others.Paginator</tagclass>
+    <info>Paginador dinamico</info>
+</tag>
+
+<tag>
+	<name>page</name>
+    <tagclass>com.tags.others.Page</tagclass>
+    <info>Pagina de paginador.</info>
+   	<attribute>
+      	<name>label</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>url</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>state</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>first</name>
+      	<type>java.util.Boolean</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>last</name>
+      	<type>java.util.Boolean</type>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>paragraph</name>
+    <tagclass>com.tags.others.Paragraph</tagclass>
+    <info>Parrafo</info>
+   	<attribute>
+      	<name>lead</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>align</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>em</name>
+    <tagclass>com.tags.others.Em</tagclass>
+    <info>em</info>
+   	<attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>small</name>
+    <tagclass>com.tags.others.Small</tagclass>
+    <info>small</info>
+   	<attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>strong</name>
+    <tagclass>com.tags.others.Strong</tagclass>
+    <info>strong</info>
+   	<attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>text</name>
+    <tagclass>com.tags.others.Text</tagclass>
+    <info>em</info>
+   	<attribute>
+      	<name>value</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>mediaObject</name>
+    <tagclass>com.tags.others.MediaObject</tagclass>
+    <info>Media Object</info>
+   	<attribute>
+      	<name>href</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>alt</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>src</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>title</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>content</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>panel</name>
+    <tagclass>com.tags.others.Panel</tagclass>
+    <info>Panel</info>
+   	<attribute>
+      	<name>title</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>foot</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+
+<!-- Table and Components -->
+<tag>
+	<name>table</name>
+    <tagclass>com.tags.tables.Table</tagclass>
+    <info>Table.</info>
+</tag>
+
+<tag>
+	<name>tableHead</name>
+    <tagclass>com.tags.tables.TableHead</tagclass>
+    <info>Cabecera de Table.</info>
+</tag>
+
+<tag>
+	<name>tableHeadField</name>
+    <tagclass>com.tags.tables.TableHeadField</tagclass>
+    <info>Campo de Cabecera de Table.</info>
+    <attribute>
+    	<name>value</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<name>tableRow</name>
+    <tagclass>com.tags.tables.TableRow</tagclass>
+    <info>Fila de Table.</info>
+</tag>
+
+<tag>
+	<name>tableField</name>
+    <tagclass>com.tags.tables.TableField</tagclass>
+    <info>Campo de Table.</info>
+    <attribute>
+    	<name>value</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+</taglib> 
