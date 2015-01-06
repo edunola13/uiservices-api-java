@@ -38,44 +38,56 @@ public class ApiUi {
 	 * Metodos de los Themes y JavaScripts
 	 */
 	
-	public String theme(String nombre) throws Exception{
-		URL url;
-		HttpURLConnection conn;
+	public String theme(String nombre){
+		try{
+			URL url;
+			HttpURLConnection conn;
+				
+			if(nombre == null){
+				nombre= "base";
+			}
 			
-		if(nombre == null){
-			nombre= "base";
-		}
-		
-		if(! this.getThemes().containsKey(nombre)){
-			url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre);
-			//url = new URL("http://localhost/serviciosui/theme?nombre=" + nombre);
+			if(! this.getThemes().containsKey(nombre)){
+				url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre);
+				//url = new URL("http://localhost/uiservices/theme?nombre=" + nombre);
+				
+				conn= (HttpURLConnection) url.openConnection();
+				String theme= this.conexionGet(url, conn);
+				this.getThemes().put(nombre, theme);
+			}
 			
-			conn= (HttpURLConnection) url.openConnection();
-			String theme= this.conexionGet(url, conn);
-			this.getThemes().put(nombre, theme);
+			return this.getThemes().get(nombre);
 		}
-		
-		return this.getThemes().get(nombre);
+		catch(Exception e){
+			this.getThemes().remove(nombre);
+			return "Ha sucedido un error en la carga del estilo " + nombre;
+		}
 	}
 	
-	public String javaScript(String nombre) throws Exception{
-		URL url;
-		HttpURLConnection conn;
+	public String javaScript(String nombre){
+		try{
+			URL url;
+			HttpURLConnection conn;
+				
+			if(nombre == null){
+				nombre= "base";
+			}
 			
-		if(nombre == null){
-			nombre= "base";
-		}
-		
-		if(! this.getJavaScripts().containsKey(nombre)){
-			url= new URL("http://www.edunola.com.ar/serviciosui/javascript?nombre=" + nombre);
-			//url = new URL("http://localhost/serviciosui/javascript?nombre=" + nombre);
+			if(! this.getJavaScripts().containsKey(nombre)){
+				url= new URL("http://www.edunola.com.ar/serviciosui/javascript?nombre=" + nombre);
+				//url = new URL("http://localhost/uiservices/javascript?nombre=" + nombre);
+				
+				conn= (HttpURLConnection) url.openConnection();
+				String javaScript= this.conexionGet(url, conn);
+				this.getJavaScripts().put(nombre, javaScript);
+			}
 			
-			conn= (HttpURLConnection) url.openConnection();
-			String javaScript= this.conexionGet(url, conn);
-			this.getJavaScripts().put(nombre, javaScript);
+			return this.getJavaScripts().get(nombre);
 		}
-		
-		return this.getJavaScripts().get(nombre);
+		catch(Exception e){
+			this.getJavaScripts().remove(nombre);
+			return "Ha sucedido un error en la carga del JavaScript " + nombre;
+		}
 	}
 	
 	private String conexionGet(URL url, HttpURLConnection conn) throws Exception{
@@ -97,7 +109,7 @@ public class ApiUi {
 			return response.toString();
 		}
 		else{
-			return "error";
+			throw new Exception();
 		}
 	}
 	
@@ -110,9 +122,9 @@ public class ApiUi {
 	 */
 	
 	public String imprimirComponente(String nombre, Map<String, Object> valores){
-		//Veo si tengo que pedir el componente al servidor
-		if(! this.getComponentes().containsKey(nombre)){
-			try {
+		try {
+			//Veo si tengo que pedir el componente al servidor
+			if(! this.getComponentes().containsKey(nombre)){			
 				//Pido el componente al Servicio UI
 				this.component(nombre);
 				
@@ -133,52 +145,50 @@ public class ApiUi {
 						
 					}
 					else{
-						System.out.println("Error, el primero debe ser un if");
-						break;
+						throw new Exception("Error, el primero debe ser un if");
 					}
 				}
 				//Guardo la estructura en CACHE
-				this.getCache().put(nombre, bloques);
+				this.getCache().put(nombre, bloques);			
+			}
+		
+			String html= "";
+			String componente= this.getComponentes().get(nombre);
+			List<EstructuraIf> bloques= this.getCache().get(nombre);
+			
+			if(bloques.size() > 0){
+				int posActual= 0;		
+				html= this.htmlCorrectoIf(bloques, componente, posActual, valores, true);
+				componente= html;	
+				html= "";
+			}
+		
+			//Cargo las Variables
+			int inicio= componente.indexOf("{{");
+			int fin= componente.indexOf("}}");		
+			while(inicio >= 0 && fin >= 0){
+				inicio= inicio + 2;
 				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		String html= "";
-		String componente= this.getComponentes().get(nombre);
-		List<EstructuraIf> bloques= this.getCache().get(nombre);
-		
-		if(bloques.size() > 0){
-			int posActual= 0;		
-			html= this.htmlCorrectoIf(bloques, componente, posActual, valores, true);
-			componente= html;	
-			html= "";
-		}
-	
-		//Cargo las Variables
-		int inicio= componente.indexOf("{{");
-		int fin= componente.indexOf("}}");		
-		while(inicio >= 0 && fin >= 0){
-			inicio= inicio + 2;
-			
-			String var= (componente.substring(inicio, fin));
-			if(valores.containsKey(var)){
-				html= html + componente.substring(0, inicio - 2) + valores.get(var);
-			}
-			else{
-				html= html + componente.substring(0, inicio - 2) + "";
+				String var= (componente.substring(inicio, fin));
+				if(valores.containsKey(var)){
+					html= html + componente.substring(0, inicio - 2) + valores.get(var);
+				}
+				else{
+					html= html + componente.substring(0, inicio - 2) + "";
+				}
+				
+				componente= componente.substring(fin + 2, componente.length());
+				
+				inicio= componente.indexOf("{{");
+				fin= componente.indexOf("}}");
 			}
 			
-			componente= componente.substring(fin + 2, componente.length());
-			
-			inicio= componente.indexOf("{{");
-			fin= componente.indexOf("}}");
+			html= html + componente;		
+			return html;
 		}
-		
-		html= html + componente;		
-		return html;
+		catch (Exception e) {
+			return "Ha sucedido un error en la carga del Componente " + nombre;
+		}
 	}
 		
 	private String htmlCorrectoIf(List<EstructuraIf> bloques, String componente, int posActual, Map<String,Object> valores, boolean primerLlamado){
@@ -484,8 +494,8 @@ public class ApiUi {
 		URL url;
 		HttpURLConnection conn;
 				
-		url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre);
-		//url = new URL("http://localhost/serviciosui/componenteDefinition?nombre=" + nombre);
+		//url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre);
+		url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre);
 					
 		conn= (HttpURLConnection) url.openConnection();
 		String componente= this.conexionComponente(url, conn);
@@ -512,7 +522,7 @@ public class ApiUi {
 			return response.toString();
 		}
 		else{
-			return "error";
+			throw new Exception();
 		}
 	}
 
