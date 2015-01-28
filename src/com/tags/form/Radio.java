@@ -12,10 +12,12 @@ import com.ui.ApiUi;
 @SuppressWarnings("serial")
 public class Radio extends TagSupport{
 	private String label;
+	private String id= "";
 	private String name;
 	private Object value;
 	private boolean inline= false;
-	
+	private String typeError;
+	private String size = "md";
 	
 	@SuppressWarnings({"static-access" })
 	@Override
@@ -26,13 +28,8 @@ public class Radio extends TagSupport{
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
 		valores.put("config.label", this.getLabel());
-		
-		if(this.isInline()){
-			valores.put("config.inline", "si");
-		}
-		else{
-			valores.put("config.inline", "no");
-		}		
+		if(this.getTypeError() != null){valores.put("config.typeError", this.getTypeError());}
+		valores.put("config.size", this.getSize());		
 				
 		//Perform substr operation on string.
 		try {
@@ -45,13 +42,15 @@ public class Radio extends TagSupport{
 			e.printStackTrace();
 		}
 		
-		//Almaceno el name del checkbox para que lo consulten los option
+		//Almaceno el name del Radio para que lo consulten los option
 		pageContext.setAttribute("nameRadio", this.getName(), pageContext.PAGE_SCOPE);
-		//Almaceno el valor del cehckbox para que lo consulten los option
+		//Almaceno el valor del Radio para que lo consulten los option
 		pageContext.setAttribute("valueRadio", this.getValue(), pageContext.PAGE_SCOPE);
-		//Inicializo el contador de Checkbox
+		//Almaceno el Id del Radio
+		pageContext.setAttribute("idRadio", this.getId(), pageContext.PAGE_SCOPE);
+		//Inicializo el contador de Radio
 		pageContext.setAttribute("numRadio", 0, pageContext.PAGE_SCOPE);
-		//Alamaceno si los checkbox se deben acomodar inline o no
+		//Alamaceno si los Radio se deben acomodar inline o no
 		pageContext.setAttribute("inlineRadio", this.isInline(), pageContext.PAGE_SCOPE);
 		
 		return EVAL_BODY_INCLUDE;
@@ -60,7 +59,7 @@ public class Radio extends TagSupport{
 	@SuppressWarnings({"static-access" })
 	@Override
 	public int doEndTag(){
-ApiUi api= ApiUi.getInstance();
+		ApiUi api= ApiUi.getInstance();
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
@@ -77,13 +76,15 @@ ApiUi api= ApiUi.getInstance();
 			e.printStackTrace();
 		}
 		
-		//Elimino el name del checkbox para que lo consulten los option
+		//Elimino el name del Radio para que lo consulten los option
 		pageContext.setAttribute("nameRadio", null, pageContext.PAGE_SCOPE);
-		//Elimino el valor del checkbox una vez que ya se ejecuto el cuerpo
+		//Elimino el valor del Radio una vez que ya se ejecuto el cuerpo
 		pageContext.setAttribute("valueRadio", null, pageContext.PAGE_SCOPE);
-		//Elimino el contador de Checkbox
+		//Elimino el Id del Radio
+		pageContext.setAttribute("idRadio", null, pageContext.PAGE_SCOPE);
+		//Elimino el contador de Radio
 		pageContext.setAttribute("numRadio", null, pageContext.PAGE_SCOPE);
-		//Elimino si los checkbox se deben acomodar inline o no
+		//Elimino si los Radio se deben acomodar inline o no
 		pageContext.setAttribute("inlineRadio", null, pageContext.PAGE_SCOPE);
 		
 		return SKIP_BODY;
@@ -120,6 +121,30 @@ ApiUi api= ApiUi.getInstance();
 
 	public void setInline(boolean inline) {
 		this.inline = inline;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getTypeError() {
+		return typeError;
+	}
+
+	public void setTypeError(String typeError) {
+		this.typeError = typeError;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
 	}
 	
 

@@ -38,9 +38,10 @@ public class CheckboxOption extends TagSupport{
 			valores.put("config.inline", "no");
 		}
 		
-		//Numero Checkbox
+		//Id Checkbox
 		int numero= (int) pageContext.getAttribute("numCheckbox", pageContext.PAGE_SCOPE);
-		valores.put("config.num", numero);
+		String id= (String) pageContext.getAttribute("idCheckbox", pageContext.PAGE_SCOPE);
+		valores.put("config.id", id + Integer.toString(numero));
 		
 		//Aumento en uno el numero
 		pageContext.setAttribute("numCheckbox", numero + 1, pageContext.PAGE_SCOPE);

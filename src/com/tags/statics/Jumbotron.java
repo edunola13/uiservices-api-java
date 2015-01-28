@@ -15,6 +15,8 @@ public class Jumbotron extends TagSupport{
 	private String contenido;
 	private String href;
 	private String label;
+	private String buttonStyle= "default";
+	private String buttonSize= "md";
 	
 	@Override
 	public int doStartTag() throws JspException {
@@ -25,7 +27,9 @@ public class Jumbotron extends TagSupport{
 		valores.put("config.titulo", this.getTitulo());
 		valores.put("config.contenido", this.getContenido());
 		valores.put("config.href", this.getHref());
-		valores.put("config.label", this.getLabel());		
+		valores.put("config.label", this.getLabel());
+		valores.put("config.buttonStyle", this.getButtonStyle());
+		valores.put("config.buttonSize", this.getButtonSize());
 		
 		//Perform substr operation on string.
 		try {
@@ -66,8 +70,25 @@ public class Jumbotron extends TagSupport{
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	
-	
-	
+
+
+	public String getButtonStyle() {
+		return buttonStyle;
+	}
+
+
+	public void setButtonStyle(String buttonStyle) {
+		this.buttonStyle = buttonStyle;
+	}
+
+
+	public String getButtonSize() {
+		return buttonSize;
+	}
+
+
+	public void setButtonSize(String buttonSize) {
+		this.buttonSize = buttonSize;
+	}	
 	
 }

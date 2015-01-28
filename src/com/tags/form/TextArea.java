@@ -12,10 +12,14 @@ import com.ui.ApiUi;
 @SuppressWarnings("serial")
 public class TextArea extends TagSupport{
 	private String label;
+	private String id= "";
 	private String name;
 	private String placeholder;
 	private Object value;
 	private Integer rows;
+	private String message;
+	private String typeError;
+	private String size = "md";
 	
 	@Override
 	public int doStartTag() throws JspException {
@@ -24,14 +28,13 @@ public class TextArea extends TagSupport{
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.label", this.getLabel());
-		valores.put("config.name", this.getName());
-		
-		if(this.getPlaceholder() != null){
-			valores.put("config.placeholder", this.getPlaceholder());
-		}
-		if(this.getRows() != null){
-			valores.put("config.rows", this.getRows());
-		}
+		valores.put("config.id", this.getId());
+		valores.put("config.name", this.getName());		
+		if(this.getPlaceholder() != null){valores.put("config.placeholder", this.getPlaceholder());}
+		if(this.getMessage() != null){valores.put("config.message", this.getMessage());}
+		if(this.getTypeError() != null){valores.put("config.typeError", this.getTypeError());}
+		valores.put("config.size", this.getSize());
+		if(this.getRows() != null){	valores.put("config.rows", this.getRows());	}
 		
 		if(this.getValue() != null){
 			valores.put("datos.value", this.getValue());
@@ -89,6 +92,38 @@ public class TextArea extends TagSupport{
 
 	public void setRows(Integer rows) {
 		this.rows = rows;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getTypeError() {
+		return typeError;
+	}
+
+	public void setTypeError(String typeError) {
+		this.typeError = typeError;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	

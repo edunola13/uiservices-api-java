@@ -22,9 +22,10 @@
 		String num= "3";
 		String num2= "2";
 		Integer num3= 4;
+		Integer num4= 2;
 		List<String> values= new ArrayList<String>();
 		values.add("1");
-		values.add("2");
+		values.add("3");
 	%>
 <div class="container">
 	<ui:columnParsed units="Horas" tableId="datatable" title="Tiempo por Procesos"></ui:columnParsed>
@@ -60,6 +61,8 @@
 	
 	<ui:badge badge="5" href="#" label="Label del Badge" />
 	
+	<ui:buttonBadge badge="3" label="Label a" id="1" onClick="as()"></ui:buttonBadge>
+	
 	<ui:blockquote source="Pepito Rodriguez" text="Esto es un texto que luego va a contener la fuente del mismo" />
 	
 	<ui:searchForm label="Formulario de busqueda" inputName="inputImpo" inputValue="<%=num3 %>" inputPlaceholder="asadasds" button_id="sd" onclick="23"/>
@@ -87,39 +90,37 @@
 	<ui:login method="POST" passName="pass" action="#" buttonLabel="Ingresar" checkName="check" checkLabel="Mantener Sesion" title="Logueo" userName="user" passPlaceholder="Password" userPlaceholder="Usuario" checkValue="1" userValue="essss"></ui:login>
 		
 	<ui:form label="Esto es un form" action="urls" method="GET" enctype="text/plain">		
-		<ui:input name="nombre" label="Nombre:" type="text" value="<%=num2 %>" placeholder="Nombre"></ui:input>
-		
-		<ui:inputFile name="archivo" label="Archivo Descargable:"></ui:inputFile>
-		
+		<ui:input name="nombre" id="aaa" label="Nombre:" type="text" value="<%=num2 %>" placeholder="Nombre" message="asas" typeError="error"></ui:input>
+				
 		<ui:textarea name="descripcion" label="Descripcion:" placeholder="Escriba aqui la descripcion" rows="15" value="<%=num3 %>"></ui:textarea>
 		
-		<ui:select name="opciones" label="Select de un boton" value="<%= num2 %>">
+		<ui:select name="opciones" label="Select de un boton" value="<%= num2 %>" id="asas" message="puti" size="lg" typeError="error"  onChange="as()">
 			<ui:selectOption value="<%=num %>" label="opcion1"></ui:selectOption>
 			<ui:selectOption value="2" label="opcion2"></ui:selectOption>
 			<ui:selectOption value="3" label="opcion3"></ui:selectOption>
 		</ui:select>
 		
-		<ui:selectMultiple name="opciones2" label="Multiple Select de un Boton" value="<%=values%>">
+		<ui:selectMultiple name="opciones2" label="Multiple Select de un Boton" value="<%=values%>" message="pepe">
 			<ui:selectOption value="1" label="opcion1"></ui:selectOption>
 			<ui:selectOption value="<%=num%>" label="opcion2"></ui:selectOption>
 			<ui:selectOption value="<%=num2%>" label="opcion3"></ui:selectOption>
 		</ui:selectMultiple>
 		
-		<ui:booleanCheckbox name="bool" label="Ejemplo Boolean" value='<%=num == "4" %>' />
+		<ui:booleanCheckbox name="bool" label="Ejemplo Boolean" value='<%=num == "3" %>' size="sm" typeError="error" id="asadad"/>
 		
-		<ui:checkbox name="pedrito" label="Select de Checkbox" value="<%= values %>" inline="false">
+		<ui:checkbox name="pedrito" label="Select de Checkbox" value="<%= values %>" inline="<%= true %>" size="lg" typeError="error" id="aaaa">
 			<ui:checkboxOption label="Opcion 1" value="1"></ui:checkboxOption>
 			<ui:checkboxOption label="Opcion 2" value="2"></ui:checkboxOption>
 		</ui:checkbox>
 		
-		<ui:radio name="pedron" label="Radio de Formulario" value="<%=num %>">
+		<ui:radio name="pedron" label="Radio de Formulario" value="<%=num %>" size="sm" typeError="success">
 			<ui:radioOption label="Opcion radio 1" value="<%=num2 %>"></ui:radioOption>
 			<ui:radioOption label="Opcion radio 2" value="3"></ui:radioOption>
 		</ui:radio>
 		
 		<ui:boxButton>
 			<ui:button label="Aceptar" type="submit"></ui:button>
-			<ui:button label="Borrar Campos" type="reset" style="primary" button_id="12" onclick="asd"></ui:button>
+			<ui:button label="Borrar Campos" type="reset" style="primary" id="12" onClick="asd"></ui:button>
 		</ui:boxButton>
 	</ui:form>
 

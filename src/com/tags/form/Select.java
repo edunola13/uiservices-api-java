@@ -12,9 +12,13 @@ import com.ui.ApiUi;
 @SuppressWarnings("serial")
 public class Select extends TagSupport{
 	private String label;
+	private String id= "";
 	private String name;
 	private Object value;
-	private Boolean multiple= false;
+	private String message;
+	private String typeError;
+	private String size = "md";
+	private String onChange= "";
 	
 	
 	@SuppressWarnings({"static-access" })
@@ -26,8 +30,13 @@ public class Select extends TagSupport{
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
 		valores.put("config.label", this.getLabel());
+		valores.put("config.id", this.getId());
 		valores.put("config.name", this.getName());
 		valores.put("config.multiple", "no");
+		if(this.getMessage() != null){valores.put("config.message", this.getMessage());}
+		if(this.getTypeError() != null){valores.put("config.typeError", this.getTypeError());}
+		valores.put("config.size", this.getSize());
+		valores.put("config.onchange", this.getOnChange());
 		
 		//Perform substr operation on string.
 		try {
@@ -57,6 +66,7 @@ public class Select extends TagSupport{
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "pie");
+		if(this.getMessage() != null){valores.put("config.message", this.getMessage());}
 				
 		//Perform substr operation on string.
 		try {
@@ -102,12 +112,44 @@ public class Select extends TagSupport{
 		this.value = value;
 	}
 
-	public Boolean getMultiple() {
-		return multiple;
+	public String getId() {
+		return id;
 	}
-	
-	public void setMultiple(Boolean multiple) {
-		this.multiple = multiple;
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getTypeError() {
+		return typeError;
+	}
+
+	public void setTypeError(String typeError) {
+		this.typeError = typeError;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public String getOnChange() {
+		return onChange;
+	}
+
+	public void setOnChange(String onChange) {
+		this.onChange = onChange;
 	}
 	
 	

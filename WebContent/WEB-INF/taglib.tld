@@ -145,6 +145,42 @@
 </tag>
 
 <tag>
+	<name>buttonBadge</name>
+    <tagclass>com.tags.statics.ButtonBadge</tagclass>
+    <info>Button Badge</info>
+    <attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>badge</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>onClick</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>type</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>style</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
 	<name>blockquote</name>
     <tagclass>com.tags.statics.Blockquote</tagclass>
     <info>Blockquote</info>
@@ -257,6 +293,14 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>buttonStyle</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>buttonSize</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
 </tag>
 
 <tag>
@@ -363,6 +407,14 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>buttonStyle</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>buttonSize</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
 </tag>
 
 <tag>
@@ -394,6 +446,10 @@
     <info>Devuelve un formularios.</info>
    	<attribute>
       	<name>label</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
@@ -488,6 +544,10 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
     <attribute>
       	<name>name</name>
       	<required>true</required>
@@ -500,21 +560,17 @@
   	<attribute>
       	<name>value</name>
       	<rtexprvalue>true</rtexprvalue>
-  	</attribute>
-</tag>
-
-<tag>
-	<name>inputFile</name>
-    <tagclass>com.tags.form.InputFile</tagclass>
-    <info>Input File de Formulario.</info>
-   	<attribute>
-      	<name>label</name>
-      	<required>true</required>
+  	</attribute>  	
+    <attribute>
+      	<name>message</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
-      	<name>name</name>
-      	<required>true</required>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -526,6 +582,10 @@
    	<attribute>
       	<name>label</name>
       	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
@@ -546,6 +606,18 @@
       	<name>value</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>message</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
 </tag>
 
 <tag>
@@ -557,6 +629,10 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
     <attribute>
       	<name>name</name>
       	<required>true</required>
@@ -565,6 +641,22 @@
   	<attribute>
   		<name>value</name>
   		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>message</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onChange</name>
+      	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
 
@@ -577,6 +669,10 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
     <attribute>
       	<name>name</name>
       	<required>true</required>
@@ -585,6 +681,22 @@
   	<attribute>
   		<name>value</name>
   		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>message</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onChange</name>
+      	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
 
@@ -613,6 +725,10 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
     <attribute>
       	<name>name</name>
       	<required>true</required>
@@ -621,6 +737,14 @@
   	<attribute>
   		<name>value</name>
   		<required>true</required>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
   		<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -632,6 +756,10 @@
    	<attribute>
       	<name>label</name>
       	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
@@ -646,6 +774,14 @@
     <attribute>
       	<name>inline</name>
       	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
 
@@ -674,6 +810,10 @@
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
     <attribute>
       	<name>name</name>
       	<required>true</required>
@@ -686,6 +826,14 @@
     <attribute>
       	<name>inline</name>
       	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
 
@@ -726,15 +874,19 @@
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
   	<attribute>
-      	<name>button_id</name>
+      	<name>id</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
   	<attribute>
-      	<name>onclick</name>
+      	<name>onClick</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
   	<attribute>
       	<name>style</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>

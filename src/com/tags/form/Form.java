@@ -12,6 +12,7 @@ import com.ui.ApiUi;
 @SuppressWarnings("serial")
 public class Form extends TagSupport{
 	private String label;
+	private String id;
 	private String method;
 	private String action;
 	private String enctype;
@@ -23,9 +24,8 @@ public class Form extends TagSupport{
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
-		if(this.getLabel() != null){
-			valores.put("config.label", this.getLabel());
-		}
+		if(this.getLabel() != null){valores.put("config.label", this.getLabel());}
+		if(this.getId() != null){ valores.put("config.id", this.getId()); }
 		valores.put("config.method", this.getMethod());
 		valores.put("config.action", this.getAction());
 		if(this.getEnctype() != null){
@@ -73,6 +73,12 @@ public class Form extends TagSupport{
 	}
 	public void setLabel(String label) {
 		this.label = label;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getMethod() {
 		return method;

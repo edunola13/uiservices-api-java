@@ -39,7 +39,8 @@ public class RadioOption extends TagSupport{
 		
 		//Numero Checkbox
 		int numero= (int) pageContext.getAttribute("numRadio", pageContext.PAGE_SCOPE);
-		valores.put("config.num", numero);		
+		String id= (String) pageContext.getAttribute("idRadio", pageContext.PAGE_SCOPE);
+		valores.put("config.id", id + Integer.toString(numero));	
 		//Aumento en uno el numero
 		pageContext.setAttribute("numRadio", numero + 1, pageContext.PAGE_SCOPE);
 		

@@ -1,4 +1,4 @@
-package com.tags.form;
+package com.tags.statics;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +10,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Button extends TagSupport{	
+public class ButtonBadge extends TagSupport {
 	private String label;
+	private String badge;
 	private String id;
 	private String onClick;
 	private String type= "button";	
@@ -24,7 +25,8 @@ public class Button extends TagSupport{
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
-		valores.put("config.label", this.getLabel());
+		valores.put("config.label", this.getLabel());	
+		valores.put("config.badge", this.getBadge());	
 		if(this.getId() != null){
 			valores.put("config.id", this.getId());
 		}
@@ -40,7 +42,7 @@ public class Button extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("button", valores));
+			out.println(api.imprimirComponente("button_badge", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,6 +57,14 @@ public class Button extends TagSupport{
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	public String getBadge() {
+		return badge;
+	}
+
+	public void setBadge(String badge) {
+		this.badge = badge;
 	}
 
 	public String getType() {
