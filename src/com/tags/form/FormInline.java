@@ -10,8 +10,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Form extends TagSupport{
-	private String label;
+public class FormInline extends TagSupport{
 	private String id;
 	private String method;
 	private String action;
@@ -24,7 +23,6 @@ public class Form extends TagSupport{
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
-		if(this.getLabel() != null){valores.put("config.label", this.getLabel());}
 		if(this.getId() != null){ valores.put("config.id", this.getId()); }
 		valores.put("config.method", this.getMethod());
 		valores.put("config.action", this.getAction());
@@ -37,7 +35,7 @@ public class Form extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("formulario", valores));
+			out.println(api.imprimirComponente("form_inline", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +57,7 @@ public class Form extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("formulario", valores));
+			out.println(api.imprimirComponente("form_inline", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,12 +66,6 @@ public class Form extends TagSupport{
 		return SKIP_BODY;
 	}
 	
-	public String getLabel() {
-		return label;
-	}
-	public void setLabel(String label) {
-		this.label = label;
-	}
 	public String getId() {
 		return id;
 	}
@@ -100,5 +92,5 @@ public class Form extends TagSupport{
 	public void setEnctype(String enctype) {
 		this.enctype = enctype;
 	}
-		
+
 }

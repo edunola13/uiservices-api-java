@@ -1,5 +1,7 @@
 package com.tags.form;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,10 +9,12 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import com.classes.Prueba;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
 public class SelectMultiple extends TagSupport{
+	private Boolean simple= false;
 	private String label;
 	private String id= "";
 	private String name;
@@ -19,7 +23,8 @@ public class SelectMultiple extends TagSupport{
 	private String typeError;
 	private String size = "md";
 	private String onChange= "";
-	
+	private Object options;
+	private String method;
 	
 	@SuppressWarnings({"static-access" })
 	@Override
@@ -37,18 +42,36 @@ public class SelectMultiple extends TagSupport{
 		if(this.getTypeError() != null){valores.put("config.typeError", this.getTypeError());}
 		valores.put("config.size", this.getSize());
 		valores.put("config.onchange", this.getOnChange());
-				
+		
+		if(this.getOptions() != null){
+			try {
+				Method m = this.getOptions().getClass().getMethod(this.getMethod(), null);
+				try {
+					System.out.print(m.invoke(this.getOptions(), null));
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (NoSuchMethodException | SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		//Perform substr operation on string.
 		try {
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("select", valores));
+			if(this.getSimple()){
+				out.println(api.imprimirComponente("select_simple", valores));
+			} else{
+				out.println(api.imprimirComponente("select", valores));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}	
 		
 		//Almaceno el valor del select para que lo consulten los option
 		pageContext.setAttribute("valueSelect", this.getValue(), pageContext.PAGE_SCOPE);
@@ -73,7 +96,11 @@ public class SelectMultiple extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("select", valores));
+			if(this.getSimple()){
+				out.println(api.imprimirComponente("select_simple", valores));
+			} else{
+				out.println(api.imprimirComponente("select", valores));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,6 +115,14 @@ public class SelectMultiple extends TagSupport{
 	}
 		
 	
+	public Boolean getSimple() {
+		return simple;
+	}
+
+	public void setSimple(Boolean simple) {
+		this.simple = simple;
+	}
+
 	public String getLabel() {
 		return label;
 	}
@@ -150,6 +185,22 @@ public class SelectMultiple extends TagSupport{
 
 	public void setOnChange(String onChange) {
 		this.onChange = onChange;
+	}
+
+	public Object getOptions() {
+		return options;
+	}
+
+	public void setOptions(Object options) {
+		this.options = options;
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
 	}
 
 	

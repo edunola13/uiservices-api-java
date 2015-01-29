@@ -11,6 +11,7 @@ import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
 public class Select extends TagSupport{
+	private Boolean simple= false;
 	private String label;
 	private String id= "";
 	private String name;
@@ -43,7 +44,11 @@ public class Select extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("select", valores));
+			if(this.getSimple()){
+				out.println(api.imprimirComponente("select_simple", valores));
+			} else{
+				out.println(api.imprimirComponente("select", valores));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,7 +78,11 @@ public class Select extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("select", valores));
+			if(this.getSimple()){
+				out.println(api.imprimirComponente("select_simple", valores));
+			} else{
+				out.println(api.imprimirComponente("select", valores));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,6 +97,14 @@ public class Select extends TagSupport{
 	}
 		
 	
+	public Boolean getSimple() {
+		return simple;
+	}
+
+	public void setSimple(Boolean simple) {
+		this.simple = simple;
+	}
+
 	public String getLabel() {
 		return label;
 	}

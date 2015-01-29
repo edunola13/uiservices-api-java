@@ -12,6 +12,8 @@ import com.ui.ApiUi;
 @SuppressWarnings("serial")
 public class DropDownMenu extends TagSupport{
 	private String label;
+	private String style= "default";
+	private String size= "md";
 	private Boolean right= false;
 
 	public int doStartTag() throws JspException {
@@ -21,6 +23,8 @@ public class DropDownMenu extends TagSupport{
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
 		valores.put("config.label", this.getLabel());
+		valores.put("config.style", this.getStyle());
+		valores.put("config.size", this.getSize());
 		if(this.getRight()){
 			valores.put("config.right", "pull-right");
 		}
@@ -76,6 +80,21 @@ public class DropDownMenu extends TagSupport{
 	public void setRight(Boolean right) {
 		this.right = right;
 	}
-	
+
+	public String getStyle() {
+		return style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}	
 	
 }

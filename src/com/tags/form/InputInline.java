@@ -10,14 +10,13 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Input extends TagSupport{
+public class InputInline extends TagSupport{
 	private String label;
 	private String type;
 	private String id= "";
 	private String name;
 	private String placeholder;
 	private Object value;
-	private String message;
 	private String typeError;
 	private String size = "md";
 	
@@ -32,7 +31,6 @@ public class Input extends TagSupport{
 		valores.put("config.id", this.getId());
 		valores.put("config.name", this.getName());		
 		if(this.getPlaceholder() != null){valores.put("config.placeholder", this.getPlaceholder());}
-		if(this.getMessage() != null){valores.put("config.message", this.getMessage());}
 		if(this.getTypeError() != null){valores.put("config.typeError", this.getTypeError());}
 		valores.put("config.size", this.getSize());
 		
@@ -45,7 +43,7 @@ public class Input extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("input", valores));
+			out.println(api.imprimirComponente("input_inline", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,14 +100,6 @@ public class Input extends TagSupport{
 		this.id = id;
 	}
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public String getTypeError() {
 		return typeError;
 	}
@@ -124,5 +114,5 @@ public class Input extends TagSupport{
 
 	public void setSize(String size) {
 		this.size = size;
-	}	
+	}
 }

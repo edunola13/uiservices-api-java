@@ -443,11 +443,35 @@
 <tag>
 	<name>form</name>
     <tagclass>com.tags.form.Form</tagclass>
-    <info>Devuelve un formularios.</info>
+    <info>Formulario Horizontal</info>
    	<attribute>
       	<name>label</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>method</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>action</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>enctype</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>form_inline</name>
+    <tagclass>com.tags.form.FormInline</tagclass>
+    <info>Formulario en Linea</info>
   	<attribute>
       	<name>id</name>
       	<rtexprvalue>true</rtexprvalue>
@@ -576,6 +600,101 @@
 </tag>
 
 <tag>
+	<name>input_inline</name>
+    <tagclass>com.tags.form.InputInline</tagclass>
+    <info>Input de formulario en Linea.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>type</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>placeholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>value</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>input_button</name>
+    <tagclass>com.tags.form.InputButton</tagclass>
+    <info>Input con Button.</info>
+   	<attribute>
+      	<name>labelButton</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>type</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>placeholder</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>value</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onClcik</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>buttonId</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>buttonStyle</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>buttonAfter</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
+</tag>
+
+<tag>
 	<name>textarea</name>
     <tagclass>com.tags.form.TextArea</tagclass>
     <info>Text Area de formulario.</info>
@@ -624,6 +743,11 @@
 	<name>select</name>
     <tagclass>com.tags.form.Select</tagclass>
     <info>Select de formulario.</info>
+    <attribute>
+      	<name>simple</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
    	<attribute>
       	<name>label</name>
       	<required>true</required>
@@ -664,6 +788,11 @@
 	<name>selectMultiple</name>
     <tagclass>com.tags.form.SelectMultiple</tagclass>
     <info>Select Multiple de formulario.</info>
+    <attribute>
+      	<name>simple</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
    	<attribute>
       	<name>label</name>
       	<required>true</required>
@@ -696,6 +825,14 @@
   	</attribute>
   	<attribute>
       	<name>onChange</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>options</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>method</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -902,6 +1039,14 @@
     	<rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
+    	<name>style</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>size</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
     	<name>right</name>
     	<type>java.util.Boolean</type>
     	<rtexprvalue>true</rtexprvalue>
@@ -1054,6 +1199,32 @@
 	<name>breadcrumb</name>
     <tagclass>com.tags.others.Breadcrumb</tagclass>
     <info>breadcrumb</info>
+</tag>
+
+<tag>
+	<name>button_group</name>
+    <tagclass>com.tags.others.ButtonGroup</tagclass>
+    <info>Button Group.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>vertical</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>button_toolbar</name>
+    <tagclass>com.tags.others.ButtonToolbar</tagclass>
+    <info>Button Toolbar</info>
 </tag>
 
 <tag>

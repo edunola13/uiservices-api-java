@@ -1,13 +1,15 @@
+<%@page import="org.eclipse.jdt.internal.compiler.ast.InstanceOfExpression"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*" %>
+<%@page import="com.classes.*" %>
 <%@taglib prefix="ui" uri="http://www.edunola.com.ar/" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<ui:theme></ui:theme>
+	<ui:theme nombre="cerulean"></ui:theme>
 	<ui:theme nombre="tablero"/>
 	
 	<title>Cliente UI</title>
@@ -26,6 +28,7 @@
 		List<String> values= new ArrayList<String>();
 		values.add("1");
 		values.add("3");
+		Prueba prueba= new Prueba();
 	%>
 <div class="container">
 	<ui:columnParsed units="Horas" tableId="datatable" title="Tiempo por Procesos"></ui:columnParsed>
@@ -67,7 +70,7 @@
 	
 	<ui:searchForm label="Formulario de busqueda" inputName="inputImpo" inputValue="<%=num3 %>" inputPlaceholder="asadasds" button_id="sd" onclick="23"/>
 	
-	<ui:iframe ratio="small" src=""></ui:iframe>
+	<ui:iframe ratio="small" src="http://www.edunola.com.ar/"></ui:iframe>
 	
 	<ui:image alt="Esto es una linda imagen" src="" />
 	
@@ -100,10 +103,10 @@
 			<ui:selectOption value="3" label="opcion3"></ui:selectOption>
 		</ui:select>
 		
-		<ui:selectMultiple name="opciones2" label="Multiple Select de un Boton" value="<%=values%>" message="pepe">
-			<ui:selectOption value="1" label="opcion1"></ui:selectOption>
-			<ui:selectOption value="<%=num%>" label="opcion2"></ui:selectOption>
-			<ui:selectOption value="<%=num2%>" label="opcion3"></ui:selectOption>
+		<ui:selectMultiple name="opciones2" label="Multiple Select de un Boton" value="<%=values%>" message="pepe" method="getHola" options="<%=prueba%>">
+<%-- 			<ui:selectOption value="1" label="opcion1"></ui:selectOption> --%>
+<%-- 			<ui:selectOption value="<%=num%>" label="opcion2"></ui:selectOption> --%>
+<%-- 			<ui:selectOption value="<%=num2%>" label="opcion3"></ui:selectOption> --%>
 		</ui:selectMultiple>
 		
 		<ui:booleanCheckbox name="bool" label="Ejemplo Boolean" value='<%=num == "3" %>' size="sm" typeError="error" id="asadad"/>
@@ -123,6 +126,41 @@
 			<ui:button label="Borrar Campos" type="reset" style="primary" id="12" onClick="asd"></ui:button>
 		</ui:boxButton>
 	</ui:form>
+	
+	<ui:form_inline action="" method="POST" id="formi">
+		<ui:input_inline name="pepe" label="pepe" type="date" id="as" placeholder="asass" value="as" size="sm" typeError="error"></ui:input_inline>
+		<ui:input_inline name="pepe" label="pepe" type="date" id="as" placeholder="asass" value="" size="sm" typeError="success"></ui:input_inline>
+				
+		<ui:select name="opciones" label="Select de un boton" value="<%= num2 %>" id="asas" size="sm" onChange="as()" simple="true">
+			<ui:selectOption value="<%=num %>" label="opcion1"></ui:selectOption>
+			<ui:selectOption value="2" label="opcion2"></ui:selectOption>
+			<ui:selectOption value="3" label="opcion3"></ui:selectOption>
+		</ui:select>
+		
+		<ui:selectMultiple name="opciones2" label="Multiple Select de un Boton" value="<%=values%>" message="pepe" simple="false">
+			<ui:selectOption value="1" label="opcion1"></ui:selectOption>
+			<ui:selectOption value="<%=num%>" label="opcion2"></ui:selectOption>
+			<ui:selectOption value="<%=num2%>" label="opcion3"></ui:selectOption>
+		</ui:selectMultiple>
+	</ui:form_inline>
+
+	<ui:button_group label="adadd">
+		<ui:button label="Aceptar" type="submit"></ui:button>
+		<ui:button label="Borrar Campos" type="reset" style="primary" id="12" onClick="asd"></ui:button>
+	</ui:button_group>
+	
+	<ui:button_toolbar>
+		<ui:button_group label="adadd" size="sm">
+			<ui:button label="Aceptar" type="submit"></ui:button>
+			<ui:button label="Borrar Campos" type="reset" style="primary" id="12" onClick="asd"></ui:button>
+		</ui:button_group>
+		<ui:button_group label="adadd" size="sm" vertical="true">
+			<ui:button label="Aceptar" type="submit"></ui:button>
+			<ui:button label="Borrar Campos" type="reset" style="primary" id="12" onClick="asd"></ui:button>
+		</ui:button_group>
+	</ui:button_toolbar>
+
+	<ui:input_button name="asas" type="text" labelButton="Algo"></ui:input_button>
 
 	<ui:navigationBar href="#" logo="Logo">
 		<ui:navBarLeft>

@@ -10,16 +10,18 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Input extends TagSupport{
-	private String label;
+public class InputButton extends TagSupport{
+	private String labelButton;
 	private String type;
 	private String id= "";
 	private String name;
 	private String placeholder;
 	private Object value;
-	private String message;
-	private String typeError;
+	private String onClick= "";
+	private String buttonId= "";
+	private String buttonStyle= "default";	
 	private String size = "md";
+	private Boolean buttonAfter= true;
 	
 	@Override
 	public int doStartTag() throws JspException {
@@ -27,15 +29,21 @@ public class Input extends TagSupport{
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
-		valores.put("config.label", this.getLabel());
-		valores.put("config.type", this.getType());
-		valores.put("config.id", this.getId());
+		valores.put("config.labelButton", this.getLabelButton());
+		valores.put("config.inputType", this.getType());
+		valores.put("config.inputId", this.getId());
 		valores.put("config.name", this.getName());		
 		if(this.getPlaceholder() != null){valores.put("config.placeholder", this.getPlaceholder());}
-		if(this.getMessage() != null){valores.put("config.message", this.getMessage());}
-		if(this.getTypeError() != null){valores.put("config.typeError", this.getTypeError());}
+		valores.put("config.onclick", this.getOnClick());
+		valores.put("config.buttonId", this.getButtonId());	
+		valores.put("config.buttonStyle", this.getButtonStyle());	
+		if(this.getButtonAfter()){
+			valores.put("config.buttonAfter", "si");
+		}else{
+			valores.put("config.buttonAfter", "no");
+		}
 		valores.put("config.size", this.getSize());
-		
+				
 		if(this.getValue() != null){
 			valores.put("datos.value", this.getValue());
 		}		
@@ -45,21 +53,13 @@ public class Input extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("input", valores));
+			out.println(api.imprimirComponente("input_button", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return SKIP_BODY;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
 	}
 
 	public String getType() {
@@ -102,27 +102,52 @@ public class Input extends TagSupport{
 		this.id = id;
 	}
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getTypeError() {
-		return typeError;
-	}
-
-	public void setTypeError(String typeError) {
-		this.typeError = typeError;
-	}
-
 	public String getSize() {
 		return size;
 	}
 
 	public void setSize(String size) {
 		this.size = size;
-	}	
+	}
+
+	public String getLabelButton() {
+		return labelButton;
+	}
+
+	public void setLabelButton(String labelButton) {
+		this.labelButton = labelButton;
+	}
+
+	public String getOnClick() {
+		return onClick;
+	}
+
+	public void setOnClick(String onClick) {
+		this.onClick = onClick;
+	}
+
+	public String getButtonId() {
+		return buttonId;
+	}
+
+	public void setButtonId(String buttonId) {
+		this.buttonId = buttonId;
+	}
+
+	public String getButtonStyle() {
+		return buttonStyle;
+	}
+
+	public void setButtonStyle(String buttonStyle) {
+		this.buttonStyle = buttonStyle;
+	}
+
+	public Boolean getButtonAfter() {
+		return buttonAfter;
+	}
+
+	public void setButtonAfter(Boolean buttonAfter) {
+		this.buttonAfter = buttonAfter;
+	}
+
 }
