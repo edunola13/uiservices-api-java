@@ -146,6 +146,4 @@ public class Radio extends TagSupport{
 	public void setSize(String size) {
 		this.size = size;
 	}
-	
-
 }

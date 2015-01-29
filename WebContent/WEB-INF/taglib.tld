@@ -810,6 +810,52 @@
   	<attribute>
   		<name>value</name>
   		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
+  	</attribute>
+  	<attribute>
+      	<name>message</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onChange</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>selectFull</name>
+    <tagclass>com.tags.form.SelectFull</tagclass>
+    <info>Select Full de formulario.</info>
+    <attribute>
+      	<name>simple</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
   	</attribute>
   	<attribute>
       	<name>message</name>
@@ -830,9 +876,81 @@
   	<attribute>
   		<name>options</name>
   		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
   	</attribute>
   	<attribute>
-      	<name>method</name>
+      	<name>methodLabel</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>methodValue</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>defaultLabel</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>defaultValue</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>selectMultipleFull</name>
+    <tagclass>com.tags.form.SelectMultipleFull</tagclass>
+    <info>Select Multiple Full de formulario.</info>
+    <attribute>
+      	<name>simple</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
+  	</attribute>
+  	<attribute>
+      	<name>message</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>onChange</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>options</name>
+  		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
+  	</attribute>
+  	<attribute>
+      	<name>methodLabel</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>methodValue</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -923,6 +1041,56 @@
 </tag>
 
 <tag>
+	<name>checkboxFull</name>
+    <tagclass>com.tags.form.CheckboxFull</tagclass>
+    <info>Checkbox Full de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
+  	</attribute>
+    <attribute>
+      	<name>inline</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>options</name>
+  		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
+  	</attribute>
+  	<attribute>
+      	<name>methodLabel</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>methodValue</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
 	<name>checkboxOption</name>
     <tagclass>com.tags.form.CheckboxOption</tagclass>
     <info>Opcion de Checkbox de formulario.</info>
@@ -971,6 +1139,55 @@
   	<attribute>
   		<name>size</name>
   		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
+	<name>radioFull</name>
+    <tagclass>com.tags.form.RadioFull</tagclass>
+    <info>Radio Full de formulario.</info>
+   	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>id</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>name</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>value</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+    <attribute>
+      	<name>inline</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>typeError</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>size</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>options</name>
+  		<rtexprvalue>true</rtexprvalue>
+  		<type>java.util.Collection</type>
+  	</attribute>
+  	<attribute>
+      	<name>methodLabel</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>methodValue</name>
+      	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
 

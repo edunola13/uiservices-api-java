@@ -1,5 +1,7 @@
 package com.tags.form;
 
+import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +12,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class SelectMultiple extends TagSupport{
+public class SelectMultipleFull extends TagSupport{
 	private Boolean simple= false;
 	private String label;
 	private String id= "";
@@ -20,8 +22,11 @@ public class SelectMultiple extends TagSupport{
 	private String typeError;
 	private String size = "md";
 	private String onChange= "";
+	private Object options;
+	private String methodValue;
+	private String methodLabel;
 	
-	@SuppressWarnings({"static-access" })
+	@SuppressWarnings({"unchecked" })
 	@Override
 	public int doStartTag() throws JspException {
 		ApiUi api= ApiUi.getInstance();
@@ -38,6 +43,38 @@ public class SelectMultiple extends TagSupport{
 		valores.put("config.size", this.getSize());
 		valores.put("config.onchange", this.getOnChange());
 		
+		//Opciones del Select
+		String componentes="";	
+		
+		Collection<Object> opciones= (Collection<Object>) this.getOptions();
+		for(Object opcion: opciones){
+			try{
+				Method mLabel = opcion.getClass().getMethod(this.getMethodLabel(), null);
+				Method mValue = opcion.getClass().getMethod(this.getMethodValue(), null);				
+				Object optLabel= mLabel.invoke(opcion, null);
+				Object optValue= mValue.invoke(opcion, null);
+				
+				Map<String, Object> valoresOpt= new HashMap<String, Object>();
+				valoresOpt.put("config.label", optLabel);
+				valoresOpt.put("datos.value", optValue);	
+				
+				Collection<Object> values= (Collection<Object>) this.getValue();
+				for(Object valueA: values){
+					if(valueA.equals(optValue)){
+						valoresOpt.put("config.checked", "si");
+						break;
+					}
+					else{
+						valoresOpt.put("config.checked", "no");
+					}
+				}
+				componentes += api.imprimirComponente("select_option", valoresOpt);				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		valores.put("components", componentes);
+		
 		//Perform substr operation on string.
 		try {
 			//Get the writer object for output.
@@ -53,15 +90,10 @@ public class SelectMultiple extends TagSupport{
 			e.printStackTrace();
 		}	
 		
-		//Almaceno el valor del select para que lo consulten los option
-		pageContext.setAttribute("valueSelect", this.getValue(), pageContext.PAGE_SCOPE);
-		//Alamacena que el select es simple. Para que la opcion compare contra un unico valor
-		pageContext.setAttribute("typeSelect", "multiple", pageContext.PAGE_SCOPE);
-		
 		return EVAL_BODY_INCLUDE;
 	}
 	
-	@SuppressWarnings({"static-access" })
+	@SuppressWarnings({ })
 	@Override
 	public int doEndTag(){
 		ApiUi api= ApiUi.getInstance();
@@ -85,11 +117,6 @@ public class SelectMultiple extends TagSupport{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//Elimino el valor del select una vez que ya se ejecuto el cuerpo
-		pageContext.setAttribute("valueSelect", null, pageContext.PAGE_SCOPE);
-		//Elimino que el select es simple. Para que la opcion compare contra un unico valor
-		pageContext.setAttribute("typeSelect", "simple", pageContext.PAGE_SCOPE);
 		
 		return SKIP_BODY;
 	}
@@ -165,5 +192,29 @@ public class SelectMultiple extends TagSupport{
 
 	public void setOnChange(String onChange) {
 		this.onChange = onChange;
+	}
+	
+	public Object getOptions() {
+		return options;
+	}
+
+	public void setOptions(Object options) {
+		this.options = options;
+	}
+
+	public String getMethodValue() {
+		return methodValue;
+	}
+
+	public void setMethodValue(String methodValue) {
+		this.methodValue = methodValue;
+	}
+
+	public String getMethodLabel() {
+		return methodLabel;
+	}
+
+	public void setMethodLabel(String methodLabel) {
+		this.methodLabel = methodLabel;
 	}
 }

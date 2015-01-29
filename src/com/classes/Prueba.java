@@ -15,8 +15,8 @@ public class Prueba {
 		this.hola = hola;
 	}
 
-	public String getChau() {
-		return chau;
+	public Integer getChau() {
+		return Integer.parseInt(this.chau);
 	}
 
 	public void setChau(String chau) {
