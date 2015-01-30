@@ -1,6 +1,5 @@
 package com.tags.form;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +8,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import com.classes.BeanImplementation;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
@@ -28,7 +28,7 @@ public class SelectFull extends TagSupport{
 	private String defaultValue= "0";
 	private String defaultLabel;
 	
-	@SuppressWarnings({ })
+	@SuppressWarnings({"unchecked" })
 	@Override
 	public int doStartTag() throws JspException {
 		ApiUi api= ApiUi.getInstance();
@@ -58,25 +58,19 @@ public class SelectFull extends TagSupport{
 		
 		Collection<Object> opciones= (Collection<Object>) this.getOptions();
 		for(Object opcion: opciones){
-			try{
-				Method mLabel = opcion.getClass().getMethod(this.getMethodLabel(), null);
-				Method mValue = opcion.getClass().getMethod(this.getMethodValue(), null);				
-				Object optLabel= mLabel.invoke(opcion, null);
-				Object optValue= mValue.invoke(opcion, null);
+			Object optLabel= BeanImplementation.executeMethodGet(opcion, this.getMethodLabel());
+			Object optValue= BeanImplementation.executeMethodGet(opcion, this.getMethodValue());
 				
-				Map<String, Object> valoresOpt= new HashMap<String, Object>();
-				valoresOpt.put("config.label", optLabel);
-				valoresOpt.put("datos.value", optValue);				
-				if(this.getValue().equals(optValue)){
-					valoresOpt.put("config.checked", "si");
-				}
-				else{
-					valoresOpt.put("config.checked", "no");
-				}
-				componentes += api.imprimirComponente("select_option", valoresOpt);				
-			}catch(Exception e){
-				e.printStackTrace();
+			Map<String, Object> valoresOpt= new HashMap<String, Object>();
+			valoresOpt.put("config.label", optLabel);
+			valoresOpt.put("datos.value", optValue);				
+			if(this.getValue().equals(optValue)){
+				valoresOpt.put("config.checked", "si");
 			}
+			else{
+				valoresOpt.put("config.checked", "no");
+			}
+			componentes += api.imprimirComponente("select_option", valoresOpt);
 		}
 		valores.put("components", componentes);
 		

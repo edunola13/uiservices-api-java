@@ -117,8 +117,8 @@
 			<ui:selectOption value="3" label="opcion3"></ui:selectOption>
 		</ui:select>
 		
-		<ui:selectFull name="opciones2" simple="true" label="Multiple Select de un Boton" value="<%=num4%>" message="pepe" methodLabel="getHola" methodValue="getChau" options="<%=pruebas%>" defaultLabel="Gil Gil" defaultValue="0"></ui:selectFull>
-		<ui:selectMultipleFull name="opciones2" label="Multiple Select de un Boton" value="<%=valuesInt%>" message="pepe" methodLabel="getHola" methodValue="getChau" options="<%=pruebas%>"></ui:selectMultipleFull>
+		<ui:selectFull name="opciones2" simple="true" label="Multiple Select de un Boton" value="<%=num4%>" message="pepe" methodLabel="hola" methodValue="chau" options="<%=pruebas%>" defaultLabel="Gil Gil" defaultValue="0"></ui:selectFull>
+		<ui:selectMultipleFull name="opciones2" label="Multiple Select de un Boton" value="<%=valuesInt%>" message="pepe" methodLabel="hola" methodValue="chau" options="<%=pruebas%>"></ui:selectMultipleFull>
 		
 		<ui:booleanCheckbox name="bool" label="Ejemplo Boolean" value='<%=num == "3" %>' size="sm" typeError="error" id="asadad"/>
 		
@@ -127,7 +127,7 @@
 			<ui:checkboxOption label="Opcion 2" value="2"></ui:checkboxOption>
 		</ui:checkbox>
 		
-		<ui:checkboxFull name="pedrito" label="Select de Checkbox" value="<%= valuesInt %>" inline="<%= true %>" size="lg" typeError="error" id="aaaa" options="<%=pruebas%>" methodLabel="getHola" methodValue="getChau">
+		<ui:checkboxFull name="pedrito" label="Select de Checkbox" value="<%= valuesInt %>" inline="<%= true %>" size="lg" typeError="error" id="aaaa" options="<%=pruebas%>" methodLabel="hola" methodValue="chau">
 		</ui:checkboxFull>
 		
 		<ui:radio name="pedron21" label="Radio de Formulario" value="<%=num %>" size="sm" typeError="success">
@@ -135,7 +135,7 @@
 			<ui:radioOption label="Opcion radio 2" value="3"></ui:radioOption>
 		</ui:radio>
 		
-		<ui:radioFull name="pedr2on2" label="Radio de Formulario" value="<%=1 %>" size="sm" typeError="success" options="<%=pruebas%>" methodLabel="getHola" methodValue="getChau" id="asas">
+		<ui:radioFull name="pedr2on2" label="Radio de Formulario" value="<%=1 %>" size="sm" typeError="success" options="<%=pruebas%>" methodLabel="hola" methodValue="chau" id="asas">
 		</ui:radioFull>
 		
 		<ui:boxButton>

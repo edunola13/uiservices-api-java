@@ -1,6 +1,5 @@
 package com.tags.form;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +8,10 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import com.classes.BeanImplementation;
 import com.ui.ApiUi;
 
+@SuppressWarnings("serial")
 public class RadioFull extends TagSupport{
 	private String label;
 	private String id= "";
@@ -23,7 +24,7 @@ public class RadioFull extends TagSupport{
 	private String methodValue;
 	private String methodLabel;
 	
-	@SuppressWarnings({ })
+	@SuppressWarnings({"unchecked" })
 	@Override
 	public int doStartTag() throws JspException {
 		ApiUi api= ApiUi.getInstance();
@@ -40,35 +41,29 @@ public class RadioFull extends TagSupport{
 		int numero= 0;
 		Collection<Object> opciones= (Collection<Object>) this.getOptions();
 		for(Object opcion: opciones){
-			try{
-				Method mLabel = opcion.getClass().getMethod(this.getMethodLabel(), null);
-				Method mValue = opcion.getClass().getMethod(this.getMethodValue(), null);				
-				Object optLabel= mLabel.invoke(opcion, null);
-				Object optValue= mValue.invoke(opcion, null);
+			Object optLabel= BeanImplementation.executeMethodGet(opcion, this.getMethodLabel());
+			Object optValue= BeanImplementation.executeMethodGet(opcion, this.getMethodValue());
 				
-				Map<String, Object> valoresOpt= new HashMap<String, Object>();
-				valoresOpt.put("config.label", optLabel);
-				valoresOpt.put("config.name", name);
-				valoresOpt.put("datos.value", optValue);
-				if(this.isInline()){
-					valoresOpt.put("config.inline", "si");
-				}else{
-					valoresOpt.put("config.inline", "no");
-				}
-				valoresOpt.put("config.id", this.getId() + Integer.toString(numero));
-				numero++;
-
-				if(this.getValue().equals(optValue)){
-					valoresOpt.put("config.checked", "si");
-				}
-				else{
-					valoresOpt.put("config.checked", "no");
-				}
-						
-				componentes += api.imprimirComponente("radio_option", valoresOpt);				
-			}catch(Exception e){
-				e.printStackTrace();
+			Map<String, Object> valoresOpt= new HashMap<String, Object>();
+			valoresOpt.put("config.label", optLabel);
+			valoresOpt.put("config.name", name);
+			valoresOpt.put("datos.value", optValue);
+			if(this.isInline()){
+				valoresOpt.put("config.inline", "si");
+			}else{
+				valoresOpt.put("config.inline", "no");
 			}
+			valoresOpt.put("config.id", this.getId() + Integer.toString(numero));
+			numero++;
+
+			if(this.getValue().equals(optValue)){
+				valoresOpt.put("config.checked", "si");
+			}
+			else{
+				valoresOpt.put("config.checked", "no");
+			}
+					
+			componentes += api.imprimirComponente("radio_option", valoresOpt);
 		}
 		valores.put("components", componentes);
 		
