@@ -28,6 +28,17 @@
   	</attribute>
 </tag>
 
+<!-- Definicion del Proyecto -->
+<tag>
+	<name>setProyecto</name>
+    <tagclass>com.tags.Proyecto</tagclass>
+    <info>Proyecto Actual.</info>
+   	<attribute>
+      	<name>nombre</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
 <!-- Charts -->
 <tag>
 	<name>columnParsed</name>

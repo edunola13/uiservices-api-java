@@ -9,11 +9,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<ui:theme nombre="cerulean"></ui:theme>
-	<ui:theme nombre="tablero"/>
+	<ui:theme nombre="cerulean"></ui:theme>	
+	<ui:javaScript></ui:javaScript>
 	
 	<title>Cliente UI</title>
-	<ui:javaScript></ui:javaScript>
+	
+	<ui:setProyecto nombre="tablero" />
+	<ui:theme nombre="tablero"/>
 	<ui:javaScript nombre="tablero"></ui:javaScript>
 	
 </head>
@@ -72,6 +74,7 @@
 	
 	<ui:dateCountdown id="algo3" height="200" date="2014-05-09 00:00:00" width="500"></ui:dateCountdown>
 
+	<ui:setProyecto  />
 	<ui:address address="523 n 3443" locality="La Plata, Buenos Aires" name="Prueba Adress" phone="${requestScope.algo} 234" />
 	
 	<ui:alertMessage strong="Esto es fuerte" type="danger" message="Esto es un Mensaje de alerta"></ui:alertMessage>

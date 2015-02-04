@@ -22,6 +22,7 @@ public class ApiUi {
 	private Map<String, String> javaScripts= new HashMap<String, String>();               	//Contiene las definiciones de los javaScript por nombre
 	
 	private static ApiUi instance = null;
+	private static String proyecto= "bootstrap3";
 		
 	protected ApiUi() {
 		// Exists only to defeat instantiation.
@@ -34,37 +35,46 @@ public class ApiUi {
 	    return instance;
 	}
 	
+	
+	
+	public static String getProyecto() {
+		return proyecto;
+	}
+	public static void setProyecto(String proyecto) {
+		ApiUi.proyecto = proyecto;
+	}
+
 	/**
 	 * Metodos de los Themes y JavaScripts
-	 */
-	
+	 */	
 	public String theme(String nombre){
+		String nom_componente= ApiUi.getProyecto() +  "_" + nombre;
 		try{
 			URL url;
-			HttpURLConnection conn;
-				
+			HttpURLConnection conn;				
 			if(nombre == null){
 				nombre= "base";
 			}
 			
-			if(! this.getThemes().containsKey(nombre)){
-				url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre);
-				//url = new URL("http://localhost/uiservices/theme?nombre=" + nombre);
+			if(! this.getThemes().containsKey(nom_componente)){
+				url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+				//url = new URL("http://localhost/uiservices/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
 				
 				conn= (HttpURLConnection) url.openConnection();
 				String theme= this.conexionGet(url, conn);
-				this.getThemes().put(nombre, theme);
+				this.getThemes().put(nom_componente, theme);
 			}
 			
-			return this.getThemes().get(nombre);
+			return this.getThemes().get(nom_componente);
 		}
 		catch(Exception e){
-			this.getThemes().remove(nombre);
+			this.getThemes().remove(nom_componente);
 			return "Ha sucedido un error en la carga del estilo " + nombre;
 		}
 	}
 	
 	public String javaScript(String nombre){
+		String nom_componente= ApiUi.getProyecto() +  "_" + nombre;
 		try{
 			URL url;
 			HttpURLConnection conn;
@@ -73,19 +83,19 @@ public class ApiUi {
 				nombre= "base";
 			}
 			
-			if(! this.getJavaScripts().containsKey(nombre)){
-				url= new URL("http://www.edunola.com.ar/serviciosui/javascript?nombre=" + nombre);
-				//url = new URL("http://localhost/uiservices/javascript?nombre=" + nombre);
+			if(! this.getJavaScripts().containsKey(nom_componente)){
+				url= new URL("http://www.edunola.com.ar/serviciosui/javascript?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+				//url = new URL("http://localhost/uiservices/javascript?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
 				
 				conn= (HttpURLConnection) url.openConnection();
 				String javaScript= this.conexionGet(url, conn);
-				this.getJavaScripts().put(nombre, javaScript);
+				this.getJavaScripts().put(nom_componente, javaScript);
 			}
 			
-			return this.getJavaScripts().get(nombre);
+			return this.getJavaScripts().get(nom_componente);
 		}
 		catch(Exception e){
-			this.getJavaScripts().remove(nombre);
+			this.getJavaScripts().remove(nom_componente);
 			return "Ha sucedido un error en la carga del JavaScript " + nombre;
 		}
 	}
@@ -111,25 +121,24 @@ public class ApiUi {
 		else{
 			throw new Exception();
 		}
-	}
-	
+	}	
 	/**
 	 * Fin metodos de los Themes y JavaScripts
 	 */
 	
 	/**
 	 * Metodos de los Componentes
-	 */
-	
+	 */	
 	public String imprimirComponente(String nombre, Map<String, Object> valores){
+		String nom_componente= ApiUi.getProyecto() +  "_" + nombre;
 		try {
 			//Veo si tengo que pedir el componente al servidor
-			if(! this.getComponentes().containsKey(nombre)){			
+			if(! this.getComponentes().containsKey(nom_componente)){			
 				//Pido el componente al Servicio UI
 				this.component(nombre);
 				
 				//Armo la estructura (CACHE) del componente
-				String componente= this.getComponentes().get(nombre);
+				String componente= this.getComponentes().get(nom_componente);
 				List<EstructuraIf> bloques= new ArrayList<EstructuraIf>();
 				
 				int inicio= componente.indexOf("{%", 0);
@@ -149,12 +158,12 @@ public class ApiUi {
 					}
 				}
 				//Guardo la estructura en CACHE
-				this.getCache().put(nombre, bloques);			
+				this.getCache().put(nom_componente, bloques);			
 			}
 		
 			String html= "";
-			String componente= this.getComponentes().get(nombre);
-			List<EstructuraIf> bloques= this.getCache().get(nombre);
+			String componente= this.getComponentes().get(nom_componente);
+			List<EstructuraIf> bloques= this.getCache().get(nom_componente);
 			
 			if(bloques.size() > 0){
 				int posActual= 0;		
@@ -490,17 +499,23 @@ public class ApiUi {
 		return rta;
 	}
 	
-	private void component(String nombre) throws Exception {
-		URL url;
-		HttpURLConnection conn;
-				
-		//url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre);
-		url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre);
+	private void component(String nombre) throws Exception{
+		String nom_componente= ApiUi.getProyecto() +  "_" + nombre;
+		try{
+			URL url;
+			HttpURLConnection conn;			
 					
-		conn= (HttpURLConnection) url.openConnection();
-		String componente= this.conexionComponente(url, conn);
-			
-		this.getComponentes().put(nombre, componente);
+			//url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+			url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+						
+			conn= (HttpURLConnection) url.openConnection();
+			String componente= this.conexionComponente(url, conn);
+				
+			this.getComponentes().put(nom_componente, componente);
+		}catch(Exception e){
+			this.getComponentes().remove(nom_componente);
+			throw e;
+		}
 	}
 	
 	private String conexionComponente(URL url, HttpURLConnection conn) throws Exception{
