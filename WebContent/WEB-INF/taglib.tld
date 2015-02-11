@@ -315,6 +315,40 @@
 </tag>
 
 <tag>
+	<name>link</name>
+    <tagclass>com.tags.statics.Link</tagclass>
+    <info>Link</info>
+   	<attribute>
+      	<name>id</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>href</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>label</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>button</name>
+      	<rtexprvalue>true</rtexprvalue>
+      	<type>java.util.Boolean</type>
+  	</attribute>
+  	<attribute>
+      	<name>style</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>size</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
+<tag>
 	<name>simplePaginator</name>
     <tagclass>com.tags.statics.SimplePaginator</tagclass>
     <info>Paginador simple.</info>
@@ -1401,6 +1435,15 @@
     	<required>true</required>
     	<rtexprvalue>true</rtexprvalue>
     </attribute>
+    <attribute>
+    	<name>position</name>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>inverse</name>
+    	<rtexprvalue>true</rtexprvalue>
+    	<type>java.util.Boolean</type>
+    </attribute>
 </tag>
 
 <tag>
@@ -1453,6 +1496,32 @@
 	<name>button_toolbar</name>
     <tagclass>com.tags.others.ButtonToolbar</tagclass>
     <info>Button Toolbar</info>
+</tag>
+
+<tag>
+	<name>carousel</name>
+    <tagclass>com.tags.others.Carousel</tagclass>
+    <info>Carousel</info>    
+</tag>
+
+<tag>
+	<name>carousel_item</name>
+    <tagclass>com.tags.others.CarouselItem</tagclass>
+    <info>Carousel Item</info>
+    <attribute>
+      	<name>src</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>alt</name>
+      	<required>true</required>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+      	<name>state</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
 </tag>
 
 <tag>

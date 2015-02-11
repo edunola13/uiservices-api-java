@@ -1,4 +1,4 @@
-package com.tags.nav_menu;
+package com.tags.others;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,34 +10,27 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class NavigationBar extends TagSupport{
-	private String href;
-	private String logo;
-	private String position;
-	private Boolean inverse= false;
-	
-	@Override
+public class CarouselItem extends TagSupport{
+	private String src;
+	private String alt;
+	private String state="";
+
 	public int doStartTag() throws JspException {
 		ApiUi api= ApiUi.getInstance();
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
-		valores.put("config.href", this.getHref());
-		valores.put("config.logo", this.getLogo());
-		valores.put("config.position", this.getPosition());
-		if(this.getInverse()){
-			valores.put("config.inverse", "navbar-inverse");
-		}else{
-			valores.put("config.inverse", "");
-		}
+		valores.put("config.src", this.getSrc());
+		valores.put("config.alt", this.getAlt());
+		valores.put("config.state", this.getState());
 		
 		//Perform substr operation on string.
 		try {
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("navigation_bar", valores));
+			out.println(api.imprimirComponente("carousel_item", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +52,7 @@ public class NavigationBar extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("navigation_bar", valores));
+			out.println(api.imprimirComponente("carousel_item", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,36 +60,29 @@ public class NavigationBar extends TagSupport{
 		
 		return SKIP_BODY;
 	}
-	
-	
-	public String getHref() {
-		return href;
-	}
-	public void setHref(String href) {
-		this.href = href;
-	}
-	public String getLogo() {
-		return logo;
-	}
-	public void setLogo(String logo) {
-		this.logo = logo;
+
+	public String getSrc() {
+		return src;
 	}
 
-	public String getPosition() {
-		return position;
+	public void setSrc(String src) {
+		this.src = src;
 	}
 
-	public void setPosition(String position) {
-		this.position = position;
+	public String getAlt() {
+		return alt;
 	}
 
-	public Boolean getInverse() {
-		return inverse;
+	public void setAlt(String alt) {
+		this.alt = alt;
 	}
 
-	public void setInverse(Boolean inverse) {
-		this.inverse = inverse;
+	public String getState() {
+		return state;
 	}
-	
+
+	public void setState(String state) {
+		this.state = state;
+	}
 	
 }
