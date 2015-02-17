@@ -1436,6 +1436,11 @@
     	<rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
+    	<name>containerFluid</name>
+    	<rtexprvalue>true</rtexprvalue>
+    	<type>java.util.Boolean</type>
+    </attribute>
+    <attribute>
     	<name>position</name>
     	<rtexprvalue>true</rtexprvalue>
     </attribute>

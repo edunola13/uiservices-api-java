@@ -189,7 +189,7 @@
 
 	<ui:input_button name="asas" type="text" labelButton="Algo"></ui:input_button>
 
-	<ui:navigationBar href="#" logo="Logo" inverse="true" position="navbar-fixed-bottom">
+	<ui:navigationBar href="#" logo="Logo" containerFluid="true" inverse="false">
 		<ui:navBarLeft>
 			<ui:navItem label="Opcion 1" href="#"  />
 			<ui:navItem label="Opcion 2" href="#" state="active"/>

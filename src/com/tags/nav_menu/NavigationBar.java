@@ -13,6 +13,7 @@ import com.ui.ApiUi;
 public class NavigationBar extends TagSupport{
 	private String href;
 	private String logo;
+	private Boolean containerFluid;
 	private String position;
 	private Boolean inverse= false;
 	
@@ -25,6 +26,11 @@ public class NavigationBar extends TagSupport{
 		valores.put("config.seccion", "cabecera");
 		valores.put("config.href", this.getHref());
 		valores.put("config.logo", this.getLogo());
+		if(this.getContainerFluid()){
+			valores.put("config.containerFluid", "si");
+		}else{
+			valores.put("config.containerFluid", "no");
+		}
 		valores.put("config.position", this.getPosition());
 		if(this.getInverse()){
 			valores.put("config.inverse", "navbar-inverse");
@@ -80,6 +86,14 @@ public class NavigationBar extends TagSupport{
 	}
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+
+	public Boolean getContainerFluid() {
+		return containerFluid;
+	}
+
+	public void setContainerFluid(Boolean containerFluid) {
+		this.containerFluid = containerFluid;
 	}
 
 	public String getPosition() {
