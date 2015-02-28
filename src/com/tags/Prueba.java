@@ -7,7 +7,7 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="prueba", value="edunola.prueba")
+@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="prueba", value="prueba")
 public class Prueba extends UIComponentBase {
 
     protected String value= "prueba";
