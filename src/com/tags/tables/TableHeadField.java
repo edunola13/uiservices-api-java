@@ -39,7 +39,7 @@ public class TableHeadField extends TagSupport{
 	
 	@Override
 	public int doEndTag(){
-ApiUi api= ApiUi.getInstance();
+		ApiUi api= ApiUi.getInstance();
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();

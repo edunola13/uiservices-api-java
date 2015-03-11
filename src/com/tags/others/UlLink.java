@@ -10,7 +10,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Ul_A extends TagSupport{
+public class UlLink extends TagSupport{
 	
 	@Override
 	public int doStartTag() throws JspException {

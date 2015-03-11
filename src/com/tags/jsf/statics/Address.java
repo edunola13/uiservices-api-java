@@ -27,6 +27,8 @@ public class Address extends UIComponentBase{
     public void encodeBegin(FacesContext context) throws IOException {
     	ApiUi api= ApiUi.getInstance();
 		
+    	System.out.println();
+    	
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.nombre", this.getName());

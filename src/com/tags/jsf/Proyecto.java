@@ -8,9 +8,9 @@ import javax.faces.context.FacesContext;
 
 import com.ui.ApiUi;
 
-@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="proyecto", value="proyecto")
+@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="setProyecto", value="setProyecto")
 public class Proyecto extends UIComponentBase{
-	private String nombre= "base";
+	private String nombre= "bootstrap3";
 
 	@Override
     public String getFamily() {        

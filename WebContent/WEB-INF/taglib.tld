@@ -514,7 +514,7 @@
 </tag>
 
 <tag>
-	<name>form_inline</name>
+	<name>formInline</name>
     <tagclass>com.tags.form.FormInline</tagclass>
     <info>Formulario en Linea</info>
   	<attribute>
@@ -645,7 +645,7 @@
 </tag>
 
 <tag>
-	<name>input_inline</name>
+	<name>inputInline</name>
     <tagclass>com.tags.form.InputInline</tagclass>
     <info>Input de formulario en Linea.</info>
    	<attribute>
@@ -686,7 +686,7 @@
 </tag>
 
 <tag>
-	<name>input_button</name>
+	<name>inputButton</name>
     <tagclass>com.tags.form.InputButton</tagclass>
     <info>Input con Button.</info>
    	<attribute>
@@ -1478,7 +1478,7 @@
 </tag>
 
 <tag>
-	<name>button_group</name>
+	<name>buttonGroup</name>
     <tagclass>com.tags.others.ButtonGroup</tagclass>
     <info>Button Group.</info>
    	<attribute>
@@ -1498,7 +1498,7 @@
 </tag>
 
 <tag>
-	<name>button_toolbar</name>
+	<name>buttonToolbar</name>
     <tagclass>com.tags.others.ButtonToolbar</tagclass>
     <info>Button Toolbar</info>
 </tag>
@@ -1510,7 +1510,7 @@
 </tag>
 
 <tag>
-	<name>carousel_item</name>
+	<name>carouselItem</name>
     <tagclass>com.tags.others.CarouselItem</tagclass>
     <info>Carousel Item</info>
     <attribute>
@@ -1530,8 +1530,8 @@
 </tag>
 
 <tag>
-	<name>ul_a</name>
-    <tagclass>com.tags.others.Ul_A</tagclass>
+	<name>ulLink</name>
+    <tagclass>com.tags.others.UlLink</tagclass>
     <info>ul de a.</info>
 </tag>
 
@@ -1562,8 +1562,8 @@
 </tag>
 
 <tag>
-	<name>li_a</name>
-    <tagclass>com.tags.others.Li_A</tagclass>
+	<name>liLink</name>
+    <tagclass>com.tags.others.LiLink</tagclass>
     <info>li de a.</info>
    	<attribute>
       	<name>label</name>

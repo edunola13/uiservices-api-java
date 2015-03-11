@@ -1,24 +1,31 @@
-package com.tags.others;
+package com.tags.jsf.others;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.tagext.TagSupport;
+import javax.faces.component.FacesComponent;
+import javax.faces.component.UIComponentBase;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
 
 import com.ui.ApiUi;
 
-@SuppressWarnings("serial")
-public class Li_A extends TagSupport{
+@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="liLink", value="liLink")
+public class LiLink extends UIComponentBase{
 	private String label;
 	private String href;
 	private String badge;
 	private Boolean active;
 	
 	@Override
-	public int doStartTag() throws JspException {
-		ApiUi api= ApiUi.getInstance();
+    public String getFamily() {        
+        return "EnolaUIServices";
+    }
+ 
+    @Override
+    public void encodeBegin(FacesContext context) throws IOException {
+    	ApiUi api= ApiUi.getInstance();
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
@@ -34,19 +41,9 @@ public class Li_A extends TagSupport{
 			}
 		}
 		
-		//Perform substr operation on string.
-		try {
-			//Get the writer object for output.
-			JspWriter out = pageContext.getOut();
-			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("li", valores));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return SKIP_BODY;
-	}
+        ResponseWriter writer = context.getResponseWriter();
+        writer.write(api.imprimirComponente("li", valores));
+    }
 
 	public String getLabel() {
 		return label;
@@ -55,7 +52,7 @@ public class Li_A extends TagSupport{
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	
+
 	public String getHref() {
 		return href;
 	}
@@ -79,8 +76,4 @@ public class Li_A extends TagSupport{
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-
-
-
-
 }

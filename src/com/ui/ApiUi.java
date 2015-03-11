@@ -69,6 +69,7 @@ public class ApiUi {
 		}
 		catch(Exception e){
 			this.getThemes().remove(nom_componente);
+			System.out.println(e.getMessage());
 			return "Ha sucedido un error en la carga del estilo " + nombre;
 		}
 	}
@@ -96,6 +97,7 @@ public class ApiUi {
 		}
 		catch(Exception e){
 			this.getJavaScripts().remove(nom_componente);
+			System.out.println(e.getMessage());
 			return "Ha sucedido un error en la carga del JavaScript " + nombre;
 		}
 	}
@@ -196,6 +198,7 @@ public class ApiUi {
 			return html;
 		}
 		catch (Exception e) {
+			System.out.println(e.getMessage());
 			return "Ha sucedido un error en la carga del Componente " + nombre;
 		}
 	}
