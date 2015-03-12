@@ -10,6 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.InitialContext;
+import javax.naming.NameClassPair;
+import javax.naming.NamingEnumeration;
+
 import org.json.simple.JSONObject;
 
 import com.classes.EstructuraIf;
@@ -21,11 +25,27 @@ public class ApiUi {
 	private Map<String, String> themes= new HashMap<String, String>();						//Contiene las definiciones de los temas por nombre
 	private Map<String, String> javaScripts= new HashMap<String, String>();               	//Contiene las definiciones de los javaScript por nombre
 	
+	private Boolean serverDefinition= false;														//Inidica si se utiliza o no una definicion de servidor
+	private String serverDefinitionFile= "";													//Indica el archivo que contiene la definicion del servidor si existe
+	
 	private static ApiUi instance = null;
 	private static String proyecto= "bootstrap3";
 		
 	protected ApiUi() {
-		// Exists only to defeat instantiation.
+		try{
+			InitialContext initialContext = new javax.naming.InitialContext();
+			NamingEnumeration<NameClassPair> list = initialContext.list("java:comp/env");
+			while (list.hasMore()) {
+				if(list.next().getName().equals("enolaUi")){
+					this.serverDefinition= true;
+					this.serverDefinitionFile= (String)initialContext.lookup("java:comp/env/enolaUi/ServerDefinition");
+					break;
+				}
+			}
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			System.out.println("Ha sucedido un error en la carga del ServerDefinition");
+		}
 	}
 	   
 	public static ApiUi getInstance() {
@@ -33,8 +53,7 @@ public class ApiUi {
 			instance = new ApiUi();
 	    }
 	    return instance;
-	}
-	
+	}	
 	
 	
 	public static String getProyecto() {
@@ -55,7 +74,7 @@ public class ApiUi {
 			if(nombre == null){
 				nombre= "base";
 			}
-			
+						
 			if(! this.getThemes().containsKey(nom_componente)){
 				url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
 				//url = new URL("http://localhost/uiservices/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
