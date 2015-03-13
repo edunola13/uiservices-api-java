@@ -1,6 +1,7 @@
 package com.ui;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.naming.InitialContext;
 import javax.naming.NameClassPair;
@@ -39,6 +41,9 @@ public class ApiUi {
 				if(list.next().getName().equals("enolaUi")){
 					this.serverDefinition= true;
 					this.serverDefinitionFile= (String)initialContext.lookup("java:comp/env/enolaUi/ServerDefinition");
+					
+					
+										
 					break;
 				}
 			}
@@ -62,7 +67,7 @@ public class ApiUi {
 	public static void setProyecto(String proyecto) {
 		ApiUi.proyecto = proyecto;
 	}
-
+	
 	/**
 	 * Metodos de los Themes y JavaScripts
 	 */	
@@ -76,11 +81,16 @@ public class ApiUi {
 			}
 						
 			if(! this.getThemes().containsKey(nom_componente)){
-				url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
-				//url = new URL("http://localhost/uiservices/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+				String theme;
+				if(this.serverDefinition){
+					theme= this.loadServer().getProperty(ApiUi.getProyecto() + "&theme&" + nombre);
+				}else{
+					url= new URL("http://www.edunola.com.ar/serviciosui/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+					//url = new URL("http://localhost/uiservices/theme?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+					conn= (HttpURLConnection) url.openConnection();
+					theme= this.conexionGet(url, conn);
+				}
 				
-				conn= (HttpURLConnection) url.openConnection();
-				String theme= this.conexionGet(url, conn);
 				this.getThemes().put(nom_componente, theme);
 			}
 			
@@ -104,11 +114,15 @@ public class ApiUi {
 			}
 			
 			if(! this.getJavaScripts().containsKey(nom_componente)){
-				url= new URL("http://www.edunola.com.ar/serviciosui/javascript?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
-				//url = new URL("http://localhost/uiservices/javascript?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
-				
-				conn= (HttpURLConnection) url.openConnection();
-				String javaScript= this.conexionGet(url, conn);
+				String javaScript;
+				if(this.serverDefinition){
+					javaScript= this.loadServer().getProperty(ApiUi.getProyecto() + "&javascript&" + nombre);
+				}else{				
+					url= new URL("http://www.edunola.com.ar/serviciosui/javascript?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+					//url = new URL("http://localhost/uiservices/javascript?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+					conn= (HttpURLConnection) url.openConnection();
+					javaScript= this.conexionGet(url, conn);
+				}
 				this.getJavaScripts().put(nom_componente, javaScript);
 			}
 			
@@ -524,14 +538,19 @@ public class ApiUi {
 	private void component(String nombre) throws Exception{
 		String nom_componente= ApiUi.getProyecto() +  "_" + nombre;
 		try{
-			URL url;
-			HttpURLConnection conn;			
-					
-			//url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
-			url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+			String componente;
+			if(this.serverDefinition){
+				componente= this.loadServer().getProperty(ApiUi.getProyecto() + "&component&" + nombre);
+			}else{
+				URL url;
+				HttpURLConnection conn;			
 						
-			conn= (HttpURLConnection) url.openConnection();
-			String componente= this.conexionComponente(url, conn);
+				//url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+				url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+							
+				conn= (HttpURLConnection) url.openConnection();
+				componente= this.conexionComponente(url, conn);
+			}
 				
 			this.getComponentes().put(nom_componente, componente);
 		}catch(Exception e){
@@ -566,6 +585,34 @@ public class ApiUi {
 	/**
 	 * Fin metodo de los componentes
 	 */
+	
+	/**
+	 * Carga el servidor en un objeto properties para que pueda consultarse los elementos
+	 * @return
+	 * @throws Exception
+	 */
+	private Properties loadServer() throws Exception{
+		try{
+			Properties prop = new Properties();
+	    	InputStream input = null;
+	    	
+	    	String filename = this.serverDefinitionFile;
+	    	input = getClass().getClassLoader().getResourceAsStream(filename);
+			if (input == null) {
+				System.out.println("Sorry, unable to find " + filename);
+			}
+			
+			//load a properties file from class path, inside static method
+			prop.load(input);
+			return prop;
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			System.out.println("Ha sucedido un error en la carga del ServerDefinition");
+			throw e;
+		}
+	}
+
+	
 	
 	@SuppressWarnings({ "unused"})
 	@Deprecated
