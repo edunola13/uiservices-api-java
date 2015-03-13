@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*" %>
-<%@page import="com.classes.*" %>
+<%@page import="com.classes.Prueba" %>
 <%@taglib prefix="ui" uri="http://www.edunola.com.ar/" %>
 
 <!DOCTYPE html>
