@@ -54,7 +54,7 @@ public class SelectOption extends TagSupport{
 			}
 		}		
 
-		valores.put("datos.value", this.getValue());		
+		valores.put("config.value", this.getValue());		
 				
 		//Perform substr operation on string.
 		try {

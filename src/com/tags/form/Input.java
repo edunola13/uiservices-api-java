@@ -37,7 +37,7 @@ public class Input extends TagSupport{
 		valores.put("config.size", this.getSize());
 		
 		if(this.getValue() != null){
-			valores.put("datos.value", this.getValue());
+			valores.put("config.value", this.getValue());
 		}		
 		
 		//Perform substr operation on string.

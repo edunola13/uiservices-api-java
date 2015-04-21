@@ -44,7 +44,7 @@ public class TextArea extends UIComponentBase{
 		if(this.getRows() != null){	valores.put("config.rows", this.getRows());	}
 		
 		if(this.getValue() != null){
-			valores.put("datos.value", this.getValue());
+			valores.put("config.value", this.getValue());
 		}	
 		
         ResponseWriter writer = context.getResponseWriter();

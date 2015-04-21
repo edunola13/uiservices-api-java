@@ -33,21 +33,21 @@ public class Login extends Form{
 		
 		valores.put("config.title", this.getTitle());
 		if(this.getUserPlaceholder() != null){
-			valores.put("datos.user.placeholder", this.getUserPlaceholder());
+			valores.put("config.user.placeholder", this.getUserPlaceholder());
 		}
-		valores.put("datos.user.name", this.getUserName());
+		valores.put("config.user.name", this.getUserName());
 		if(this.getUserValue() != null){
-			valores.put("datos.user.value", this.getUserValue());
+			valores.put("config.user.value", this.getUserValue());
 		}
 		if(this.getPassPlaceholder() != null){
-			valores.put("datos.pass.placeholder", this.getPassPlaceholder());
+			valores.put("config.pass.placeholder", this.getPassPlaceholder());
 		}
-		valores.put("datos.pass.name", this.getPassName());
-		valores.put("datos.check.name", this.getCheckName());
+		valores.put("config.pass.name", this.getPassName());
+		valores.put("config.check.name", this.getCheckName());
 		if(this.getCheckValue() != null){
-			valores.put("datos.check.value", this.getCheckValue());
+			valores.put("config.check.value", this.getCheckValue());
 		}
-		valores.put("datos.check.label", this.getCheckLabel());
+		valores.put("config.check.label", this.getCheckLabel());
 		valores.put("config.labelButton", this.getButtonLabel());
 		
 		//Perform substr operation on string.

@@ -37,7 +37,7 @@ public class TextArea extends TagSupport{
 		if(this.getRows() != null){	valores.put("config.rows", this.getRows());	}
 		
 		if(this.getValue() != null){
-			valores.put("datos.value", this.getValue());
+			valores.put("config.value", this.getValue());
 		}		
 		
 		//Perform substr operation on string.

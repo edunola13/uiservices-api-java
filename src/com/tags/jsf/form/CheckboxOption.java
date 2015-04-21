@@ -67,7 +67,7 @@ public class CheckboxOption extends UIComponentBase{
 		}
 			
 		if(this.getValue() != null){
-			valores.put("datos.value", this.getValue());
+			valores.put("config.value", this.getValue());
 		}
 		
         ResponseWriter writer = context.getResponseWriter();

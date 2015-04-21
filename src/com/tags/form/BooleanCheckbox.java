@@ -34,7 +34,7 @@ public class BooleanCheckbox extends TagSupport{
 		valoresOpcion.put("config.name", this.getName());
 		valoresOpcion.put("config.inline", "si");
 		valoresOpcion.put("config.id", this.getId());
-		valoresOpcion.put("datos.value", 1);
+		valoresOpcion.put("config.value", 1);
 		
 		if(this.getValue()){
 			valoresOpcion.put("config.checked", "si");

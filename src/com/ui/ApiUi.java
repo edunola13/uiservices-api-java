@@ -545,8 +545,8 @@ public class ApiUi {
 				URL url;
 				HttpURLConnection conn;			
 						
-				//url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
-				url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+				url= new URL("http://www.edunola.com.ar/serviciosui/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
+				//url = new URL("http://localhost/uiservices/componenteDefinition?nombre=" + nombre + "&proyecto=" + ApiUi.getProyecto());
 							
 				conn= (HttpURLConnection) url.openConnection();
 				componente= this.conexionComponente(url, conn);
