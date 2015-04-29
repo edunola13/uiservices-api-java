@@ -27,13 +27,13 @@ public class HelloBean implements Serializable {
 		valuesInt.add(2);
 		valuesInt.add(3);
 		Prueba prueba1= new Prueba();
-		prueba1.setChau("1");prueba1.setHola("El 1");
+		prueba1.setValue("1");prueba1.setLabel("El 1");
 		pruebas.add(prueba1);
 		Prueba prueba2= new Prueba();
-		prueba2.setChau("3");prueba2.setHola("El 3");
+		prueba2.setValue("3");prueba2.setLabel("El 3");
 		pruebas.add(prueba2);
 		Prueba prueba3= new Prueba();
-		prueba3.setChau("2");prueba3.setHola("El 2");
+		prueba3.setValue("2");prueba3.setLabel("El 2");
 		pruebas.add(prueba3);
 	}
 	
@@ -63,13 +63,13 @@ public class HelloBean implements Serializable {
 	}
 	public List<Prueba> getPruebas() {
 		Prueba prueba1= new Prueba();
-		prueba1.setChau("1");prueba1.setHola("El 1");
+		prueba1.setValue("1");prueba1.setLabel("El 1");
 		pruebas.add(prueba1);
 		Prueba prueba2= new Prueba();
-		prueba2.setChau("3");prueba2.setHola("El 3");
+		prueba2.setValue("3");prueba2.setLabel("El 3");
 		pruebas.add(prueba2);
 		Prueba prueba3= new Prueba();
-		prueba3.setChau("2");prueba3.setHola("El 2");
+		prueba3.setValue("2");prueba3.setLabel("El 2");
 		pruebas.add(prueba3);
 		return pruebas;
 	}

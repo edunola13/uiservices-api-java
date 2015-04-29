@@ -1,27 +1,29 @@
 package com.classes;
 
 public class Prueba {
-	private String hola= "asad";
-	private String chau= "aasasa";
+	private String label= "Un Label";
+	private String value= "un Value";
 	
 	public Prueba(){
 	}
 
-	public String getHola() {
-		return hola;
+	public String getLabel() {
+		return label;
 	}
 
-	public void setHola(String hola) {
-		this.hola = hola;
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
-	public Integer getChau() {
-		return Integer.parseInt(this.chau);
+	public String getValue() {
+		return value;
 	}
 
-	public void setChau(String chau) {
-		this.chau = chau;
+	public void setValue(String value) {
+		this.value = value;
 	}
+
+	
 	
 	
 }

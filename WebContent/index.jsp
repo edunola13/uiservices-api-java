@@ -37,13 +37,13 @@
 		valuesInt.add(3);
 		List<Prueba> pruebas= new ArrayList<Prueba>();
 		Prueba prueba1= new Prueba();
-		prueba1.setChau("1");prueba1.setHola("El 1");
+		prueba1.setValue("1");prueba1.setLabel("El 1");
 		pruebas.add(prueba1);
 		Prueba prueba2= new Prueba();
-		prueba2.setChau("3");prueba2.setHola("El 3");
+		prueba2.setValue("3");prueba2.setLabel("El 3");
 		pruebas.add(prueba2);
 		Prueba prueba3= new Prueba();
-		prueba3.setChau("2");prueba3.setHola("El 2");
+		prueba3.setValue("2");prueba3.setLabel("El 2");
 		pruebas.add(prueba3);
 		
 	%>
@@ -123,8 +123,8 @@
 			<ui:selectOption value="3" label="opcion3"></ui:selectOption>
 		</ui:select>
 		
-		<ui:selectFull name="opciones2" simple="true" label="Multiple Select de un Boton" value="<%=num4%>" message="pepe" methodLabel="hola" methodValue="chau" options="<%=pruebas%>" defaultLabel="Gil Gil" defaultValue="0"></ui:selectFull>
-		<ui:selectMultipleFull name="opciones2" label="Multiple Select de un Boton" value="<%=valuesInt%>" message="pepe" methodLabel="hola" methodValue="chau" options="<%=pruebas%>"></ui:selectMultipleFull>
+		<ui:selectFull name="opciones2" simple="true" label="Multiple Select de un Boton" value="<%=num4%>" message="pepe" methodLabel="label" methodValue="value" options="<%=pruebas%>" defaultLabel="Gil Gil" defaultValue="0"></ui:selectFull>
+		<ui:selectMultipleFull name="opciones2" label="Multiple Select de un Boton" value="<%=valuesInt%>" message="pepe" methodLabel="label" methodValue="value" options="<%=pruebas%>"></ui:selectMultipleFull>
 		
 		<ui:booleanCheckbox name="bool" label="Ejemplo Boolean" value='<%=num == "3" %>' size="sm" typeError="error" id="asadad"/>
 		
@@ -133,7 +133,7 @@
 			<ui:checkboxOption label="Opcion 2" value="2"></ui:checkboxOption>
 		</ui:checkbox>
 		
-		<ui:checkboxFull name="pedrito" label="Select de Checkbox" value="<%= valuesInt %>" inline="<%= true %>" size="lg" typeError="error" id="aaaa" options="<%=pruebas%>" methodLabel="hola" methodValue="chau">
+		<ui:checkboxFull name="pedrito" label="Select de Checkbox" value="<%= valuesInt %>" inline="<%= true %>" size="lg" typeError="error" id="aaaa" options="<%=pruebas%>" methodLabel="label" methodValue="value">
 		</ui:checkboxFull>
 		
 		<ui:radio name="pedron21" label="Radio de Formulario" value="<%=num %>" size="sm" typeError="success">
@@ -141,7 +141,7 @@
 			<ui:radioOption label="Opcion radio 2" value="3"></ui:radioOption>
 		</ui:radio>
 		
-		<ui:radioFull name="pedr2on2" label="Radio de Formulario" value="<%=1 %>" size="sm" typeError="success" options="<%=pruebas%>" methodLabel="hola" methodValue="chau" id="asas">
+		<ui:radioFull name="pedr2on2" label="Radio de Formulario" value="<%=1 %>" size="sm" typeError="success" options="<%=pruebas%>" methodLabel="label" methodValue="value" id="asas">
 		</ui:radioFull>
 		
 		<ui:boxButton>
