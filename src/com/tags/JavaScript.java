@@ -8,7 +8,7 @@ import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
 public class JavaScript extends TagSupport{
-	private String nombre;
+	private String name;
 	
 	@Override
 	public int doStartTag() throws JspException {
@@ -19,7 +19,7 @@ public class JavaScript extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.javaScript(this.getNombre()));
+			out.println(api.javaScript(this.getName()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,13 +27,13 @@ public class JavaScript extends TagSupport{
 		
 		return SKIP_BODY;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 }

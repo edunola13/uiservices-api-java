@@ -11,7 +11,7 @@ import com.ui.ApiUi;
 
 @FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="javaScript", value="javaScript")
 public class JavaScript extends UIComponentBase{
-	private String nombre= "base";
+	private String name= "base";
 
 	@Override
     public String getFamily() {        
@@ -23,15 +23,14 @@ public class JavaScript extends UIComponentBase{
     	ApiUi api= ApiUi.getInstance();
     	
         ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.javaScript(this.getNombre()));
+        writer.write(api.javaScript(this.getName()));
     }
 
-    
-    public String getNombre() {
-		return nombre;
+    public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 }

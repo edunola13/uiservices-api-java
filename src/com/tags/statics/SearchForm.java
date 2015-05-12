@@ -15,7 +15,7 @@ public class SearchForm extends TagSupport{
 	private String label;
 	private String inputName;
 	private String button_id;
-	private String onclick;
+	private String onClick;
 	private String inputPlaceholder;
 	private Object inputValue;
 	
@@ -31,8 +31,8 @@ public class SearchForm extends TagSupport{
 		if(this.getButton_id() != null){
 			valores.put("config.id", this.getButton_id());
 		}
-		if(this.getOnclick() != null){
-			valores.put("config.onclick", this.getOnclick());
+		if(this.getOnClick() != null){
+			valores.put("config.onclick", this.getOnClick());
 		}
 		if(this.getInputPlaceholder() != null){
 			valores.put("config.input.placeholder", this.getInputPlaceholder());
@@ -77,12 +77,12 @@ public class SearchForm extends TagSupport{
 		this.button_id = button_id;
 	}
 
-	public String getOnclick() {
-		return onclick;
+	public String getOnClick() {
+		return onClick;
 	}
 
-	public void setOnclick(String onclick) {
-		this.onclick = onclick;
+	public void setOnClick(String onClick) {
+		this.onClick = onClick;
 	}
 
 	public String getInputPlaceholder() {

@@ -13,8 +13,8 @@ import com.ui.ApiUi;
 
 @FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="jumbotron", value="jumbotron")
 public class Jumbotron extends UIComponentBase{
-	private String titulo;
-	private String contenido;
+	private String title;
+	private String content;
 	private String href;
 	private String label;
 	private String buttonStyle= "default";
@@ -31,8 +31,8 @@ public class Jumbotron extends UIComponentBase{
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
-		valores.put("config.titulo", this.getTitulo());
-		valores.put("config.contenido", this.getContenido());
+		valores.put("config.titulo", this.getTitle());
+		valores.put("config.contenido", this.getContent());
 		valores.put("config.href", this.getHref());
 		valores.put("config.label", this.getLabel());
 		valores.put("config.buttonStyle", this.getButtonStyle());
@@ -42,20 +42,21 @@ public class Jumbotron extends UIComponentBase{
         writer.write(api.imprimirComponente("jumbotron", valores));
     }
 
-	public String getTitulo() {
-		return titulo;
+	
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getContenido() {
-		return contenido;
+	public String getContent() {
+		return content;
 	}
 
-	public void setContenido(String contenido) {
-		this.contenido = contenido;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public String getHref() {

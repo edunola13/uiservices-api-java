@@ -13,7 +13,7 @@ import com.ui.ApiUi;
 
 @FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="progressBar", value="progressBar")
 public class ProgressBar extends UIComponentBase{
-	private String porcentaje;
+	private String percentage;
 	private boolean striped= false;
 	
 	@Override
@@ -27,7 +27,7 @@ public class ProgressBar extends UIComponentBase{
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
-		valores.put("config.porcentaje", this.getPorcentaje());
+		valores.put("config.porcentaje", this.getPercentage());
 		if(this.isStriped()){
 			valores.put("config.striped", "si");
 		}
@@ -36,12 +36,12 @@ public class ProgressBar extends UIComponentBase{
         writer.write(api.imprimirComponente("progress_bar", valores));
     }
 
-	public String getPorcentaje() {
-		return porcentaje;
+	public String getPercentage() {
+		return percentage;
 	}
 
-	public void setPorcentaje(String porcentaje) {
-		this.porcentaje = porcentaje;
+	public void setPercentage(String percentage) {
+		this.percentage = percentage;
 	}
 
 	public boolean isStriped() {

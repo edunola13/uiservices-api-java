@@ -11,7 +11,7 @@ import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
 public class ProgressBar extends TagSupport{
-	private String porcentaje;
+	private String percentage;
 	private boolean striped= false;
 	
 	@Override
@@ -20,7 +20,7 @@ public class ProgressBar extends TagSupport{
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
-		valores.put("config.porcentaje", this.getPorcentaje());
+		valores.put("config.porcentaje", this.getPercentage());
 		if(this.isStriped()){
 			valores.put("config.striped", "si");
 		}
@@ -40,11 +40,11 @@ public class ProgressBar extends TagSupport{
 	}
 	
 	
-	public String getPorcentaje() {
-		return porcentaje;
+	public String getPercentage() {
+		return percentage;
 	}
-	public void setPorcentaje(String porcentaje) {
-		this.porcentaje = porcentaje;
+	public void setPercentage(String percentage) {
+		this.percentage = percentage;
 	}
 	public boolean isStriped() {
 		return striped;

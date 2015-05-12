@@ -12,7 +12,7 @@
     <tagclass>com.tags.Theme</tagclass>
     <info>Tema de la pagina.</info>
    	<attribute>
-      	<name>nombre</name>
+      	<name>name</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -23,7 +23,7 @@
     <tagclass>com.tags.JavaScript</tagclass>
     <info>Java Script de la pagina.</info>
    	<attribute>
-      	<name>nombre</name>
+      	<name>name</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -34,7 +34,7 @@
     <tagclass>com.tags.Proyecto</tagclass>
     <info>Proyecto Actual.</info>
    	<attribute>
-      	<name>nombre</name>
+      	<name>name</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>
@@ -231,7 +231,7 @@
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
   	<attribute>
-      	<name>onclick</name>
+      	<name>onClick</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
@@ -285,12 +285,12 @@
     <tagclass>com.tags.statics.Jumbotron</tagclass>
     <info>Jumbotron</info>
    	<attribute>
-      	<name>titulo</name>
+      	<name>title</name>
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
-      	<name>contenido</name>
+      	<name>content</name>
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
@@ -389,7 +389,7 @@
     <tagclass>com.tags.statics.ProgressBar</tagclass>
     <info>Barra de progreso</info>
    	<attribute>
-      	<name>porcentaje</name>
+      	<name>percentage</name>
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
@@ -410,12 +410,12 @@
     <tagclass>com.tags.statics.SimpleHeader</tagclass>
     <info>Un header simple</info>
    	<attribute>
-      	<name>primario</name>
+      	<name>primary</name>
       	<required>true</required>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
     <attribute>
-      	<name>secundario</name>
+      	<name>secondary</name>
       	<rtexprvalue>true</rtexprvalue>
   	</attribute>
 </tag>

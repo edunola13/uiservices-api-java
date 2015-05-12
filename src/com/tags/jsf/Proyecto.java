@@ -10,7 +10,7 @@ import com.ui.ApiUi;
 
 @FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="setProyecto", value="setProyecto")
 public class Proyecto extends UIComponentBase{
-	private String nombre= "bootstrap3";
+	private String name= "bootstrap3";
 
 	@Override
     public String getFamily() {        
@@ -19,15 +19,15 @@ public class Proyecto extends UIComponentBase{
  
     @Override
     public void encodeBegin(FacesContext context) throws IOException {
-    	ApiUi.setProyecto(this.getNombre());
+    	ApiUi.setProyecto(this.getName());
     }
 
     
-    public String getNombre() {
-		return nombre;
+    public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 }

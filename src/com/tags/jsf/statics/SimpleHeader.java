@@ -13,8 +13,8 @@ import com.ui.ApiUi;
 
 @FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="simpleHeader", value="simpleHeader")
 public class SimpleHeader extends UIComponentBase{
-	private String primario;
-	private String secundario;
+	private String primary;
+	private String secondary;
 	
 	@Override
     public String getFamily() {        
@@ -27,28 +27,30 @@ public class SimpleHeader extends UIComponentBase{
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
-		valores.put("config.primario", this.getPrimario());
-		if(this.getSecundario() != null){
-			valores.put("config.secundario", this.getSecundario());
+		valores.put("config.primario", this.getPrimary());
+		if(this.getSecondary() != null){
+			valores.put("config.secundario", this.getSecondary());
 		}
     	
         ResponseWriter writer = context.getResponseWriter();
         writer.write(api.imprimirComponente("simple_header", valores));
     }
 
-	public String getPrimario() {
-		return primario;
+	public String getPrimary() {
+		return primary;
 	}
 
-	public void setPrimario(String primario) {
-		this.primario = primario;
+	public void setPrimary(String primary) {
+		this.primary = primary;
 	}
 
-	public String getSecundario() {
-		return secundario;
+	public String getSecondary() {
+		return secondary;
 	}
 
-	public void setSecundario(String secundario) {
-		this.secundario = secundario;
+	public void setSecondary(String secondary) {
+		this.secondary = secondary;
 	}
+
+
 }

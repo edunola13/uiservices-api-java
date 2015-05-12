@@ -7,21 +7,20 @@ import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
 public class Proyecto extends TagSupport{
-	private String nombre= "bootstrap3";
+	private String name= "bootstrap3";
 	
 	@Override
 	public int doStartTag() throws JspException {
-		ApiUi.setProyecto(this.getNombre());
+		ApiUi.setProyecto(this.getName());
 		return SKIP_BODY;
 	}
 	
-
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
