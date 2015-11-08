@@ -1,4 +1,4 @@
-package com.tags.form;
+package com.tags.others;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Botonera extends TagSupport{
+public class Pager extends TagSupport{	
 	
 	@Override
 	public int doStartTag() throws JspException {
@@ -19,13 +19,13 @@ public class Botonera extends TagSupport{
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
-		
+				
 		//Perform substr operation on string.
 		try {
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("botonera", valores));
+			out.println(api.imprimirComponente("pager", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +33,6 @@ public class Botonera extends TagSupport{
 		
 		return EVAL_BODY_INCLUDE;
 	}
-	
 	
 	@Override
 	public int doEndTag(){
@@ -48,7 +47,7 @@ public class Botonera extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("botonera", valores));
+			out.println(api.imprimirComponente("pager", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,6 +55,5 @@ public class Botonera extends TagSupport{
 		
 		return SKIP_BODY;
 	}
-	
 
 }

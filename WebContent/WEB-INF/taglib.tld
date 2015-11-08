@@ -6,6 +6,17 @@
 <info>Tag Libs UI - Enola</info>
 <uri>http://www.edunola.com.ar/</uri>
 
+<!-- Definicion del servidor UI -->
+<tag>
+	<name>setServerUrl</name>
+    <tagclass>com.tags.ServerUrl</tagclass>
+    <info>Setea el servidor UI.</info>
+   	<attribute>
+      	<name>url</name>
+      	<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+</tag>
+
 <!-- Themes -->
 <tag>
 	<name>theme</name>
@@ -30,8 +41,8 @@
 
 <!-- Definicion del Proyecto -->
 <tag>
-	<name>setProyecto</name>
-    <tagclass>com.tags.Proyecto</tagclass>
+	<name>setProject</name>
+    <tagclass>com.tags.Project</tagclass>
     <info>Proyecto Actual.</info>
    	<attribute>
       	<name>name</name>
@@ -349,8 +360,8 @@
 </tag>
 
 <tag>
-	<name>simplePaginator</name>
-    <tagclass>com.tags.statics.SimplePaginator</tagclass>
+	<name>simplePager</name>
+    <tagclass>com.tags.statics.SimplePager</tagclass>
     <info>Paginador simple.</info>
    	<attribute>
       	<name>previous_label</name>
@@ -1254,7 +1265,7 @@
 
 <tag>
 	<name>boxButton</name>
-    <tagclass>com.tags.form.Botonera</tagclass>
+    <tagclass>com.tags.form.KeyPad</tagclass>
     <info>Botonera de formulario.</info>
 </tag>
 
@@ -1587,14 +1598,14 @@
 </tag>
 
 <tag>
-	<name>paginator</name>
-    <tagclass>com.tags.others.Paginator</tagclass>
+	<name>pager</name>
+    <tagclass>com.tags.others.Pager</tagclass>
     <info>Paginador dinamico</info>
 </tag>
 
 <tag>
-	<name>page</name>
-    <tagclass>com.tags.others.Page</tagclass>
+	<name>pagerItem</name>
+    <tagclass>com.tags.others.PagerItem</tagclass>
     <info>Pagina de paginador.</info>
    	<attribute>
       	<name>label</name>

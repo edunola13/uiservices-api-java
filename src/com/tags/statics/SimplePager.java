@@ -1,18 +1,16 @@
-package com.tags.jsf.statics;
+package com.tags.statics;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.component.FacesComponent;
-import javax.faces.component.UIComponentBase;
-import javax.faces.context.FacesContext;
-import javax.faces.context.ResponseWriter;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.TagSupport;
 
 import com.ui.ApiUi;
 
-@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="simplePaginator", value="simplePaginator")
-public class SimplePaginator extends UIComponentBase{
+@SuppressWarnings("serial")
+public class SimplePager extends TagSupport{
 	private Boolean previous_disabled;
 	private String previous_url;
 	private String previous_label;
@@ -21,13 +19,8 @@ public class SimplePaginator extends UIComponentBase{
 	private String next_label;
 	
 	@Override
-    public String getFamily() {        
-        return "EnolaUIServices";
-    }
- 
-    @Override
-    public void encodeBegin(FacesContext context) throws IOException {
-    	ApiUi api= ApiUi.getInstance();
+	public int doStartTag() throws JspException {
+		ApiUi api= ApiUi.getInstance();
 		
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
@@ -48,11 +41,23 @@ public class SimplePaginator extends UIComponentBase{
 		}
 		valores.put("config.next.href", this.getNext_url());
 		valores.put("config.next.label", this.getNext_label());
-    	
-        ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("paginador_simple", valores));
-    }
+		
+		
+		//Perform substr operation on string.
+		try {
+			//Get the writer object for output.
+			JspWriter out = pageContext.getOut();
+			//Imprimo el resultado en la JSP
+			out.println(api.imprimirComponente("simple_pager", valores));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return SKIP_BODY;
+	}
 
+	
 	public Boolean getPrevious_disabled() {
 		return previous_disabled;
 	}
@@ -100,4 +105,9 @@ public class SimplePaginator extends UIComponentBase{
 	public void setNext_label(String next_label) {
 		this.next_label = next_label;
 	}
+
+	
+
+
+
 }

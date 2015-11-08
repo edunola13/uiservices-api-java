@@ -11,8 +11,8 @@ import javax.faces.context.ResponseWriter;
 
 import com.ui.ApiUi;
 
-@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="page", value="page")
-public class Page extends UIComponentBase{
+@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="pagerItem", value="pagerItem")
+public class PagerItem extends UIComponentBase{
 	private String label;
 	private String url;
 	private String state;
@@ -50,7 +50,7 @@ public class Page extends UIComponentBase{
 		}		
 		
         ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("pagina", valores));
+        writer.write(api.imprimirComponente("pager_item", valores));
     }
 
 	public String getLabel() {

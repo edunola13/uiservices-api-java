@@ -36,7 +36,7 @@ public class Paragraph extends UIComponentBase{
 		}
 		
         ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("parrafo", valores));
+        writer.write(api.imprimirComponente("paragraph", valores));
     }
     
     @Override
@@ -48,7 +48,7 @@ public class Paragraph extends UIComponentBase{
 		valores.put("config.seccion", "pie");	
     	
     	ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("parrafo", valores));
+        writer.write(api.imprimirComponente("paragraph", valores));
     }
 
 	public String getLead() {

@@ -10,7 +10,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Page extends TagSupport{
+public class PagerItem extends TagSupport{
 	private String label;
 	private String url;
 	private String state;
@@ -47,7 +47,7 @@ public class Page extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("pagina", valores));
+			out.println(api.imprimirComponente("pager_item", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

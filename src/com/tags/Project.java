@@ -6,12 +6,12 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Proyecto extends TagSupport{
+public class Project extends TagSupport{
 	private String name= "bootstrap3";
 	
 	@Override
 	public int doStartTag() throws JspException {
-		ApiUi.setProyecto(this.getName());
+		ApiUi.setProject(this.getName());
 		return SKIP_BODY;
 	}
 	
@@ -22,5 +22,4 @@ public class Proyecto extends TagSupport{
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

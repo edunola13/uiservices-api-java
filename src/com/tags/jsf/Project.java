@@ -8,8 +8,8 @@ import javax.faces.context.FacesContext;
 
 import com.ui.ApiUi;
 
-@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="setProyecto", value="setProyecto")
-public class Proyecto extends UIComponentBase{
+@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="setProject", value="setProject")
+public class Project extends UIComponentBase{
 	private String name= "bootstrap3";
 
 	@Override
@@ -19,7 +19,7 @@ public class Proyecto extends UIComponentBase{
  
     @Override
     public void encodeBegin(FacesContext context) throws IOException {
-    	ApiUi.setProyecto(this.getName());
+    	ApiUi.setProject(this.getName());
     }
 
     

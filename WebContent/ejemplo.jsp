@@ -11,7 +11,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>UI Services - Java</title>	
 	
-	<ui:setProyecto nombre="bootstrap3"/>
+	<ui:setProject name="bootstrap3"/>
 	<ui:theme ></ui:theme>	
 	<ui:javaScript></ui:javaScript>	
 </head>

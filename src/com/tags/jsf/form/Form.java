@@ -40,7 +40,7 @@ public class Form extends UIComponentBase{
 		}
 		
         ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("formulario", valores));
+        writer.write(api.imprimirComponente("form", valores));
     }
     
     @Override
@@ -52,7 +52,7 @@ public class Form extends UIComponentBase{
 		valores.put("config.seccion", "pie");	
     	
     	ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("formulario", valores));
+        writer.write(api.imprimirComponente("form", valores));
     }
 
 	public String getLabel() {

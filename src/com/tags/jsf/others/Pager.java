@@ -11,8 +11,8 @@ import javax.faces.context.ResponseWriter;
 
 import com.ui.ApiUi;
 
-@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="paginator", value="paginator")
-public class Paginator extends UIComponentBase{
+@FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="pager", value="pager")
+public class Pager extends UIComponentBase{
 	@Override
     public String getFamily() {        
         return "EnolaUIServices";
@@ -27,7 +27,7 @@ public class Paginator extends UIComponentBase{
 		valores.put("config.seccion", "cabecera");
 		
         ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("paginador", valores));
+        writer.write(api.imprimirComponente("pager", valores));
     }
     
     @Override
@@ -39,6 +39,6 @@ public class Paginator extends UIComponentBase{
 		valores.put("config.seccion", "pie");	
     	
     	ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("paginador", valores));
+        writer.write(api.imprimirComponente("pager", valores));
     }
 }

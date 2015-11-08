@@ -12,7 +12,7 @@ import javax.faces.context.ResponseWriter;
 import com.ui.ApiUi;
 
 @FacesComponent(createTag = true, namespace="http://www.edunola.com.ar/uicomponents", tagName="boxButton", value="boxButton")
-public class Botonera extends UIComponentBase{
+public class KeyPad extends UIComponentBase{
 	@Override
     public String getFamily() {        
         return "EnolaUIServices";
@@ -27,7 +27,7 @@ public class Botonera extends UIComponentBase{
     	valores.put("config.seccion", "cabecera");
 		
         ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("botonera", valores));
+        writer.write(api.imprimirComponente("keypad", valores));
     }
     
     @Override
@@ -39,6 +39,6 @@ public class Botonera extends UIComponentBase{
 		valores.put("config.seccion", "pie");	
     	
     	ResponseWriter writer = context.getResponseWriter();
-        writer.write(api.imprimirComponente("botonera", valores));
+        writer.write(api.imprimirComponente("keypad", valores));
     }
 }

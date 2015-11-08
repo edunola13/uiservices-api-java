@@ -1,4 +1,4 @@
-package com.tags.others;
+package com.tags.form;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.ui.ApiUi;
 
 @SuppressWarnings("serial")
-public class Paginator extends TagSupport{	
+public class KeyPad extends TagSupport{
 	
 	@Override
 	public int doStartTag() throws JspException {
@@ -19,13 +19,13 @@ public class Paginator extends TagSupport{
 		//Armo un mapa con los valores de configuracion del Componente
 		Map<String, Object> valores= new HashMap<String, Object>();
 		valores.put("config.seccion", "cabecera");
-				
+		
 		//Perform substr operation on string.
 		try {
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("paginador", valores));
+			out.println(api.imprimirComponente("keypad", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,6 +33,7 @@ public class Paginator extends TagSupport{
 		
 		return EVAL_BODY_INCLUDE;
 	}
+	
 	
 	@Override
 	public int doEndTag(){
@@ -47,7 +48,7 @@ public class Paginator extends TagSupport{
 			//Get the writer object for output.
 			JspWriter out = pageContext.getOut();
 			//Imprimo el resultado en la JSP
-			out.println(api.imprimirComponente("paginador", valores));
+			out.println(api.imprimirComponente("keypad", valores));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,5 +56,6 @@ public class Paginator extends TagSupport{
 		
 		return SKIP_BODY;
 	}
+	
 
 }

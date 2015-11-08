@@ -9,13 +9,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<ui:setProyecto />
+	<ui:setProject />
 	<ui:theme ></ui:theme>	
 	<ui:javaScript></ui:javaScript>
 	
 	<title>Cliente UI</title>
 	
-	<ui:setProyecto name="tablero" />
+	<ui:setProject name="tablero" />
 	<ui:theme name="tablero"/>
 	<ui:javaScript name="tablero"></ui:javaScript>
 	
@@ -75,7 +75,7 @@
 	
 	<ui:dateCountdown id="algo3" height="200" date="2014-05-09 00:00:00" width="500"></ui:dateCountdown>
 
-	<ui:setProyecto  />
+	<ui:setProject  />
 	<ui:address address="523 n 3443" locality="La Plata, Buenos Aires" name="Prueba Adress" phone="${requestScope.algo} 234" />
 	
 	<ui:alertMessage strong="Esto es fuerte" type="danger" message="Esto es un Mensaje de alerta"></ui:alertMessage>
@@ -96,7 +96,7 @@
 	
 	<ui:link href="asda" label="Ahn e link" id="asd" button="true" size="sm" style="primary"></ui:link>
 	
-	<ui:simplePaginator next_url="next" previous_url="previous" next_label="Proximo" previous_label="Anterior" previous_disabled="true"></ui:simplePaginator>
+	<ui:simplePager next_url="next" previous_url="previous" next_label="Proximo" previous_label="Anterior" previous_disabled="true"></ui:simplePager>
 	
 	<ui:progressBar percentage="45" striped="true"></ui:progressBar>
 	
@@ -241,13 +241,13 @@
 		<ui:li label="Perro"></ui:li>
 	</ui:ul>
 
-	<ui:paginator>
-		<ui:page url="#" first="true"></ui:page>
-		<ui:page url="#" label="1"></ui:page>
-		<ui:page url="#" label="..." state="disabled"></ui:page>
-		<ui:page url="#" label="5" state="active"></ui:page>
-		<ui:page url="#" last="true"></ui:page>
-	</ui:paginator>
+	<ui:pager>
+		<ui:pagerItem url="#" first="true" />
+		<ui:pagerItem url="#" label="1" />
+		<ui:pagerItem url="#" label="..." state="disabled" />
+		<ui:pagerItem url="#" label="5" state="active" />
+		<ui:pagerItem url="#" last="true" />
+	</ui:pager>
 	
 	<ui:paragraph>
 		<ui:em value="Esto es un texto EM" /><ui:small value="Esto es un texto chico" /><ui:strong value="Este es un texto fuerte" />
